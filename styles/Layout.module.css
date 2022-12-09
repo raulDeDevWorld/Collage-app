@@ -40,9 +40,11 @@
   }
   
   .main {
+position: relative;
     box-sizing: border-box;
     min-height: 100vh;
     width: 100vw;
+    min-width: 770px;
     background-image: url('../public/fondo-web.svg');
     background-size: cover;
     background-repeat: no-repeat;

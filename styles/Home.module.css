@@ -58,6 +58,19 @@
 
 
 }
+
+.formActive {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+}
 .labelFile {
   position: relative;
   cursor: pointer;
@@ -164,6 +177,14 @@
     }
   }
   
+
+  .inputActive {
+    background-color: #ffffff;
+    border: none;
+    padding: 5px;
+    border-radius: 2px;
+    text-align: center;
+  }
 .pluss {
   cursor: pointer;
   position: fixed;

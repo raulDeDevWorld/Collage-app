@@ -8,17 +8,22 @@ import CollageQR from '../components/CollageQR'
 import { WithAuth } from '../HOCs/WithAuth'
 import Layout from '../layout/Layout'
 import Error from '../components/Error'
+import Modal from '../components/Modal'
+import Button from '../components/Button'
+
 import style from '../styles/Home.module.css'
 
 function Home() {
   const { user, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
   const router = useRouter()
 
+  const [mode, setMode] = useState(false)
+
   const [arr, setArr] = useState([1, 2, 3])
-  const [numeration, setNumeration] =  useState([[1,2,3,4,5,6,7,8,9,], [10,11,12,13,14,15,16,17,18], [19,20,21,22,23,24,25,26,27], [28,29,30,31,32,33,34,35,36]])
+  const [numeration, setNumeration] = useState([[1, 2, 3, 4, 5, 6, 7, 8, 9,], [10, 11, 12, 13, 14, 15, 16, 17, 18], [19, 20, 21, 22, 23, 24, 25, 26, 27], [28, 29, 30, 31, 32, 33, 34, 35, 36]])
   const [pluss, setPluss] = useState(false)
   const [qr, setQr] = useState(false)
-  const [ templates, setTemplates ] = useState({
+  const [templates, setTemplates] = useState({
     template1: [
       'h', 'h', 'h',
       'h', 'v', 'h',
@@ -40,9 +45,22 @@ function Home() {
 
 
   const [opacity, setOpacity] = useState(false);
+  function nextClick(e) {
+    e.preventDefault()
+    if (!navigator.onLine) {
+      setUserSuccess('NoInternet')
+      return
+    }
+    const code = e.target.form[0].value
+    getCode(code, user.uid, setUserSuccess, userDB.profesor)
+  }
+  function backClick(e) {
+    e.preventDefault()
+    router.back()
+  }
 
   function arrItemsHandler() {
-    if (arr.length > 2 ){
+    if (arr.length > 2) {
       return
     }
     const copyListItems = [...arr]
@@ -65,7 +83,9 @@ function Home() {
   function removeQR() {
     setQr(!qr)
   }
-
+  function x() {
+    setMode(!mode)
+  }
 
   return (
 
@@ -75,10 +95,11 @@ function Home() {
 
         <main className={style.main}>
 
-          <button className={`${style.activator}`} onClick={arrItemsHandler}>Activar cuenta</button>
+          <button className={`${style.activator}`} onClick={x}>Activar cuenta</button>
+          
 
 
-          {arr.map((i) => <Collage id={i} numeration={numeration[i-1]} dataOrientations={templates[`template${i}`]} remove={remove} />)}
+          {arr.map((i) => <Collage id={i} numeration={numeration[i - 1]} dataOrientations={templates[`template${i}`]} remove={remove} />)}
           {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />}
 
 
@@ -91,7 +112,14 @@ function Home() {
         {success == 'complete' && <Error>Llene todo el formulario</Error>}
         <Particles />
       </div>
-
+      <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>
+        <form className={style.formActive}>
+          <input className={style.inputActive} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
+          <div className={style.buttonsContainer}>
+          <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+          </div>
+        </form>
+      </Modal>
     </Layout>
 
   )

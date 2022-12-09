@@ -12,7 +12,7 @@ export default function Layout(props) {
         handleSignOut()
     }
     function redirect() {
-        router.push("/Admin")
+        router.push("/UuidController")
     }
     console.log(router.pathname)
     return (
@@ -20,7 +20,9 @@ export default function Layout(props) {
             <header className={style.header}>
                 <p>Bienvenido a OBZON</p>
                 <div className={style.containerButtons}>
-                   
+                <Button style='buttonSecondary' click={redirect}>
+                        Home
+                    </Button>
                     <Button style='buttonSecondary' click={logout}>
                         Cerrar Sesion
                     </Button>
