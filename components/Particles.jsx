@@ -29,7 +29,7 @@ const Particles = () => {
     }
   }
 
-  return    <div style={{position: 'absolute', height: '100vh', width: '100vw', pointerEvents: 'none'}}>
+  return    <div style={{height: '100vh', width: '100vw', pointerEvents: 'none', position: 'fixed', top: '0'}}>
     <ParticleBackground settings={settings} />
   </div> 
 

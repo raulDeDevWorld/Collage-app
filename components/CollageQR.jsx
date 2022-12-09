@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import QRCode from "react-qr-code";
 import style from '../styles/Home.module.css'
 
-function Collage({ id, remove }) {
+function Collage({ id, numeration, dataOrientations,  remove }) {
 
     const [image, setImage] = useState({})
     const [arrA, setArrA] = useState([])
@@ -57,14 +57,15 @@ function Collage({ id, remove }) {
     };
     useEffect(() => {
         setArrA([`A${id}`, `B${id}`, `C${id}`, `D${id}`, `E${id}`, `F${id}`, `G${id}`, `H${id}`])
-    }, [id]);
-    console.log(image)
+    }, [id, dataOrientations, numeration]);
+    console.log(dataOrientations)
     return (
 
         <div className={style.grid} >
             {arrA.map((i, index) => <div className={`${style.form} ${opacity ? style.opacity : ''}`} draggable onDragStart={(e) => handleDragStart(e, index)} onDragEnter={(e) => handleDragEnter(e, index)} onDragEnd={handleDragEnd} key={i}>
                 {image[i] && <img src={image[i].url} className={`${style.image} ${reverse === true && style.reverse}`} style={{ transform: `rotate(${image[i].rotate}deg)`, backgroundImage: `url(${image[i].url})` }} ></img>}
-                <button className={style.rotate} onClick={(e) => rotate(i)}>↻</button>
+                {/* <button className={style.rotate} onClick={(e) => rotate(i)}>↻</button> */}
+                <span className={style.heart} style={{transform: `rotate(${dataOrientations[index] == 'h' ? '90': '0' }deg )`}}>{numeration[index]}</span>
                 <label htmlFor={`Image-${i}`} className={style.labelFile} >Cargar Imagen {i}</label>
                 <input className={style.inputFile} id={`Image-${i}`} type="file" name={i} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
             </div>)}
