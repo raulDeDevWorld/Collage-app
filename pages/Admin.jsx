@@ -1,4 +1,4 @@
-import { onAuth, signInWithEmail, handleSignOut, getCode } from '../firebase/utils'
+import { onAuth, signInWithEmail, handleSignOut,  removeData} from '../firebase/utils'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -11,9 +11,9 @@ import Error from '../components/Error'
 import Modal from '../components/Modal'
 import Button from '../components/Button'
 
-import style from '../styles/Home.module.css'
+import style from '../styles/Admin.module.css'
 
-function Home() {
+function Admin () {
   const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
   const router = useRouter()
 
@@ -43,11 +43,9 @@ function Home() {
 
   })
 
+  console.log(userDB)
 
   const [opacity, setOpacity] = useState(false);
-
-
-
   function nextClick(e) {
     e.preventDefault()
     if (!navigator.onLine) {
@@ -55,10 +53,8 @@ function Home() {
       return
     }
     const code = e.target.form[0].value
-    console.log(code)
-    getCode(code, user.uid, setUserSuccess)
+    getCode(code, user.uid, setUserSuccess, userDB.profesor)
   }
-
   function backClick(e) {
     e.preventDefault()
     router.back()
@@ -79,17 +75,12 @@ function Home() {
     setPluss(!pluss)
   }
 
-  function remove(id) {
-    const newArr = arr.filter(i => i !== id)
-    console.log(newArr)
-    setArr(newArr)
+  function remove(i) {
+    removeData(`/users/${i}`, setUserData, setUserSuccess)
   }
 
   function removeQR() {
     setQr(!qr)
-  }
-  function handlerPDF() {
-    router.push('/PdfViewer')
   }
   function x() {
     setMode(!mode)
@@ -102,17 +93,20 @@ function Home() {
       <div className={style.container}>
 
         <main className={style.main}>
+        <h3 className={style.subtitle}> Administrar Usuarios</h3>
 
-{   }
+            {userDB.users && 
+            <div>
+                {Object.keys(userDB.users).map((i, index)=>
+                       { user.uid == i && <div className={style.users}>    
+                        <span>{userDB.users[i].displayName}</span> <span className={userDB.users[i].uid !== false ? style.green : style.red}>{userDB.users[i].uid !== false ? 'Active' : 'No Active'}</span> <Button style='buttonPrimary' click={()=>remove(i)}>Eliminar</Button>
+                           </div>}
+                )}
+            </div>}
 
-          {arr.map((i) => <Collage id={i} numeration={numeration[i - 1]} dataOrientations={templates[`template${i}`]} remove={remove} />)}
-          {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />}
 
+      
 
-          <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
-          <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>
-          <button className={`${style.pluss} ${pluss === true ? style.pdf : ''}`} onClick={handlerPDF}>pdf</button>
-          <button className={`${style.pluss} ${style.plussFont}`} onClick={plussButton}>+</button>
         </main>
         {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
         {success == 'complete' && <Error>Llene todo el formulario</Error>}
@@ -131,4 +125,4 @@ function Home() {
   )
 }
 
-export default WithAuth(Home) 
+export default WithAuth(Admin) 

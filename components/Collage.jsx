@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
-
+import { useUser } from '../context/Context'
 import style from '../styles/Home.module.css'
 
 function Collage({id, numeration, dataOrientations, remove}) {
+    const { image, setAlbunImage} = useUser()
 
-    const [image, setImage] = useState({})
     const [arrA, setArrA] = useState([])
     const [opacity, setOpacity] = useState(false);
     const [reverse, setReverse] = useState(false);
@@ -16,7 +16,7 @@ function Collage({id, numeration, dataOrientations, remove}) {
         e.preventDefault()
         const fileName = e.target.name
         const file = e.target.files[0]
-        setImage({ ...image, [fileName]: { file, url: URL.createObjectURL(file), rotate: 0 } })
+        setAlbunImage({ ...image, [fileName]: { file, url: URL.createObjectURL(file), rotate: 0 } })
     }
     function rotate (name) {
         image[name] && setImage({ ...image, [name]: { ...image[name],  rotate: image[name].rotate + 90 } })

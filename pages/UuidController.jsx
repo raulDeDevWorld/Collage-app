@@ -1,13 +1,16 @@
 
 import { useState, useEffect } from 'react'
 import { generateUUID } from '../utils/UIDgenerator'
-//import { setUuidFDB  } from '../firebase/utils'
+import { writeUserData  } from '../firebase/utils'
 import Button from '../components/Button'
 import styles from '../styles/Uuid.module.css'
 import Image from 'next/image'
 import Layout from '../layout/Layout'
+import { useUser } from '../context/Context.js'
+
 
 export default function UuidController() {
+  const { user, userDB, setUserSuccess, success } = useUser()
 
   const [uuid, setUuid] = useState([])
 
@@ -25,7 +28,7 @@ export default function UuidController() {
       target[key] = false
       return target;
     }, {})
-    return setUuidFDB(obj)
+    return writeUserData('/activadores', obj, setUserSuccess )
   }
 
   useEffect(() => {

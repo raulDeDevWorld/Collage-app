@@ -14,6 +14,7 @@ export function WithAuth(Component) {
             onAuth(setUserProfile, setUserData)
             if(user === null) router.replace('/Login')
         }, [user])
+        
         return (
             <>
                 {user === undefined && <Loader />}

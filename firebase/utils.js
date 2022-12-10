@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './config'
 import { onAuthStateChanged, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut  } from "firebase/auth";
-import { getDatabase, ref, onValue, set, child, get, remove} from "firebase/database";
+import { getDatabase, ref, onValue, set, child, get, remove, update} from "firebase/database";
 
 const app = initializeApp(firebaseConfig)
 
@@ -57,6 +57,8 @@ function withGoogle () {
     // The signed-in user info.
     const user = result.user;
     // ...
+    console.log(user)
+    return writeUserData('/users', {[user.uid]:{displayName: user.displayName, email: user.email, uid: false, rol: user}})
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -82,16 +84,8 @@ function handleSignOut () {
 const dbRef = ref(getDatabase());
 
 function getData(setUserData) {
-  // get(child(dbRef, `users/`)).then((snapshot) => {
-  //   if (snapshot.exists()) {
-  //     setUserData(snapshot.val());
-  //   } else {
-  //     console.log("No data available");
-  //   }
-  // }).catch((error) => {
-  //   console.error(error);
-  // });
-  onValue(ref(db, 'users/'), (snapshot) => {
+
+  onValue(ref(db, '/'), (snapshot) => {
     if (snapshot.exists()) {
           setUserData(snapshot.val());
         } else {
@@ -114,17 +108,37 @@ function getSpecificData(query, setUserSpecificData) {
   });
 }
 
-function writeUserData (object, setUserSuccess) {
-  set(ref(db, 'users/' + object.id), object )
+function writeUserData (rute, object, setUserSuccess) {
+  update(ref(db, rute), object )
   .then(()=> setUserSuccess !== null? setUserSuccess('save'): '')
   .catch(()=>setUserSuccess('repeat'))
 }
 
-async function removeData (data, setUserData, setUserSuccess) {
-  await remove(ref(db, 'users/' + data)).then(()=>setUserSuccess('save')).catch(()=>setUserSuccess('repeat'));
+async function removeData (rute, setUserData, setUserSuccess) {
+  await remove(ref(db, rute)).then(()=>setUserSuccess('save')).catch(()=>setUserSuccess('repeat'));
   getData(setUserData)
 
 }
+function getCode(code, uid, setUserSuccess){
+  onValue(ref(db, '/activadores'), function(snapshot){  
+        var b = snapshot.child(code).exists();                
+        if (b === true ){
+              var val = snapshot.child(code).val();
+              if(val == false) {
+                    const us = 'users' 
+                    update(ref(db, '/activadores'), {[code]: true} )
+                    // db.ref(`/activadores/${code}`).set(true)
+                    update(ref(db, `/${us}/${uid}`), { uid: code, date: Date()}) 
+                    setUserSuccess(true)
+              }else{
+                    console.log('ya esta en uso')
+                    setUserSuccess(false)
+              }
+        } else {
+           console.log('no exist')
+           setUserSuccess(false)
+        }
+  })
+}
 
-
-export { onAuth, signUpWithEmail, signInWithEmail, withGoogle, handleSignOut, getData, getSpecificData, writeUserData, removeData }
+export { onAuth, signUpWithEmail, signInWithEmail, withGoogle, handleSignOut, getData, getSpecificData, writeUserData, removeData, getCode}

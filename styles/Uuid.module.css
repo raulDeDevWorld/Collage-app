@@ -37,5 +37,5 @@
     box-shadow: 0 0 5px 1px rgb(175, 175, 175);
     width: 794px;
     height: 1123px;
-    z-index: 1000000;
+    z-index: 100;
 }

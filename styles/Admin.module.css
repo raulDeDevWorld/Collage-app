@@ -1,0 +1,45 @@
+.container {
+    position: relative;
+    /* background-color: blue; */
+    padding-top: 90px;
+    padding-bottom: 70px;
+    height: 100%;
+    width: 100vw;
+    min-width: 770px;
+    display: flex;
+    flex-direction: column;
+    /* centrado vertical */
+    justify-content: center;
+    /* centrado-horizontal */
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    background-attachment: fixed;
+    
+}
+
+
+.users {
+    display: flex;
+    width: 50vw;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+
+}
+
+.green {
+    color: greenyellow;
+    font-weight: bold;
+
+}
+.red {
+    color: rgb(249, 84, 84);
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 30px;
+    text-align: center;
+}
