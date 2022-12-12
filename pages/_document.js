@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>   
                     <link rel="icon" href="/logo.png" />
-                    {/* <link rel='manifest' href='/manifest.json' /> */}
+                    <link rel='manifest' href='/manifest.json' />
                     <link rel='apple-touch-icon' href='/logo.png' />
                     <meta name="theme-color" content="#E51F22" />
                     <meta name="msapplication-navbutton-color" content="#E51F22" />
