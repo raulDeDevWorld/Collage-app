@@ -5,60 +5,62 @@ import { useUser } from '../context/Context'
 import Img from '../components/Img'
 import style from '../styles/Home.module.css'
 
-function Collage({id, remove}) {
-    const { numeration, setAlbunNumeration, templates, qr, setQr} = useUser()
+function Collage({ id, remove }) {
+    const { numeration, setAlbunNumeration, templates, qr, setQr } = useUser()
 
     const dragItem = useRef();
     const dragOverItem = useRef();
 
 
     function handleDragStart(e, index) {
-     //   console.log('start' + index)
+        //   console.log('start' + index)
         dragItem.current = index;
     }
 
     const handleDragEnter = (e, index) => {
-      //  console.log('enter' + index)
+        //  console.log('enter' + index)
         dragOverItem.current = index;
     };
 
     const handleDragEnd = (e, index) => {
-        console.log(dragItem )
-        console.log(dragOverItem )
+        console.log(dragItem)
+        console.log(dragOverItem)
 
-        if (dragOverItem.current !== undefined )
-       { console.log('end' + index)
-        const copyListItems = [...numeration];
-        [copyListItems[dragItem.current], copyListItems[dragOverItem.current]] = [copyListItems[dragOverItem.current], copyListItems[dragItem.current]]
-        setAlbunNumeration(copyListItems);
-        dragItem.current = null;
-        dragOverItem.current = null;}
+        if (dragOverItem.current !== undefined) {
+            console.log('end' + index)
+            const copyListItems = [...numeration];
+            [copyListItems[dragItem.current], copyListItems[dragOverItem.current]] = [copyListItems[dragOverItem.current], copyListItems[dragItem.current]]
+            setAlbunNumeration(copyListItems);
+            dragItem.current = null;
+            dragOverItem.current = null;
+        }
     };
-    console.log(numeration)
+    console.log(QRCode)
 
     const handlerQRUrl = (e) => {
         const qr = e.target.value
         setQr(qr)
     };
 
- 
+
     return (
         <div className={style.grid} >
-            {templates[id].map((i, index) => 
+            {templates[id].map((i, index) =>
 
-            <div className={`${style.form}`} draggable onDragStart={(e) => handleDragStart(e, index + (id * 9))} onDragEnter={(e) => handleDragEnter(e, index + (id * 9))} onDragEnd={handleDragEnd} key={index + (id * 9)}>
-                <Img id={id} i={i} index={index} />
-            </div>)}
-            {id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
-                    <QRCode
-                        size={256}
-                        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                        value={qr}
-                        viewBox={`0 0 256 256`}
-                    />
-                    <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL'/>
-                </div>
-                }
+                <div className={`${style.form}`} style={id === 2 && index > 6 ? { height: '83mm', width: '53mm' } : { height: '80mm', width: '50mm' }} draggable onDragStart={(e) => handleDragStart(e, index + (id * 9))} onDragEnter={(e) => handleDragEnter(e, index + (id * 9))} onDragEnd={handleDragEnd} key={index + (id * 9)}>
+                    <Img id={id} i={i} index={index} />
+                </div>)}
+                {id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
+                <QRCode
+                    size={256}
+                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                    value={qr}
+                    viewBox={`0 0 256 256`}
+                />
+
+                <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />
+            </div>
+            }
         </div>
     )
 }
@@ -71,4 +73,4 @@ export default Collage
 // <label htmlFor={`Image-${i}`} className={style.labelFile} >Cargar Imagen {i}</label>
 // <input className={style.inputFile} id={`Image-${i}`} type="file" name={i} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
 
-        {/* <button className={style.rotate} onClick={(e)=>rotate(i)}>↻</button> */}
+{/* <button className={style.rotate} onClick={(e)=>rotate(i)}>↻</button> */ }

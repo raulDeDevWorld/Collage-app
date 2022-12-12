@@ -32,7 +32,11 @@ export function UserProvider({ children }) {
 		[
 		  'v', 'v', 'v',
 		  'v', 'v', 'v',
-		  'v', 'v', ],
+		  'v', ],
+		  [
+			'v', 'v', 'v',
+			'v', 'v', 'v',
+			'v', 'v', ],
 		])
 
 	function setUserProfile(userProfile) {

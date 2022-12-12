@@ -92,11 +92,13 @@ function Home() {
           <Collage id={1} remove={()=>remove('pageTwo')} />
           <Collage id={2} remove={()=>remove('pageThree')} />
           <Collage id={3} remove={()=>remove('pageThree')} />
+          {/* <Collage id={4} remove={()=>remove('pageFour')} /> */}
           {/* {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />} */}
-          <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
+          {/* <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
           <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>
           <button className={`${style.pluss} ${pluss === true ? style.pdf : ''}`} onClick={handlerPDF}>pdf</button>
-          <button className={`${style.pluss} ${style.plussFont}`} onClick={plussButton}>+</button>
+          <button className={`${style.pluss} ${style.plussFont}`} onClick={plussButton}>+</button> */}
+          <button className={`${style.pluss} ${style.plussFont}`} onClick={handlerPDF}>pdf</button>
         </main>
         {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
         {success == 'complete' && <Error>Llene todo el formulario</Error>}
