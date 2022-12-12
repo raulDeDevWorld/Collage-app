@@ -1,0 +1,43 @@
+.image {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+}
+
+.heart {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    position: absolute;
+    background-image: url('../public/heart.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px;
+    margin-bottom: 50px;
+    z-index: 100000000;
+}
+
+.labelFile {
+    position: relative;
+    cursor: pointer;
+    width: 5cm;
+    height: 8cm;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgb(219, 219, 219);
+    padding: 5px 15px;
+    border-radius: 3px;
+
+    transition-property: all;
+    transition-duration: .5s;
+    border: none;
+}
+
+.inputFile {
+    display: none;
+}

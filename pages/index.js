@@ -14,7 +14,7 @@ import Button from '../components/Button'
 import style from '../styles/Home.module.css'
 
 function Home() {
-  const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
+  const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView} = useUser()
   const router = useRouter()
 
   const [mode, setMode] = useState(false)
@@ -23,25 +23,7 @@ function Home() {
   const [numeration, setNumeration] = useState([[1, 2, 3, 4, 5, 6, 7, 8, 9,], [10, 11, 12, 13, 14, 15, 16, 17, 18], [19, 20, 21, 22, 23, 24, 25, 26, 27], [28, 29, 30, 31, 32, 33, 34, 35, 36]])
   const [pluss, setPluss] = useState(false)
   const [qr, setQr] = useState(true)
-  const [templates, setTemplates] = useState({
-    template1: [
-      'h', 'h', 'h',
-      'h', 'v', 'h',
-      'h', 'v', 'h'],
-    template2: [
-      'h', 'h', 'h',
-      'h', 'v', 'h',
-      'h', 'h', 'h'],
-    template3: [
-      'h', 'h', 'v',
-      'v', 'h', 'h',
-      'v', 'h', 'h'],
-    template4: [
-      'v', 'v', 'v',
-      'v', 'v', 'v',
-      'v', 'v', 'v'],
 
-  })
 
 
   const [opacity, setOpacity] = useState(false);
@@ -85,6 +67,9 @@ function Home() {
     setArr(newArr)
   }
 
+  function remove(data) {
+    handlerPageView(data)
+  }
   function removeQR() {
     setQr(!qr)
   }
@@ -103,12 +88,11 @@ function Home() {
 
         <main className={style.main}>
 
-{   }
-
-          {arr.map((i) => <Collage id={i} numeration={numeration[i - 1]} dataOrientations={templates[`template${i}`]} remove={remove} />)}
-          {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />}
-
-
+          <Collage id={0} remove={()=>remove('pageOne')} />
+          <Collage id={1} remove={()=>remove('pageTwo')} />
+          <Collage id={2} remove={()=>remove('pageThree')} />
+          <Collage id={3} remove={()=>remove('pageThree')} />
+          {/* {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />} */}
           <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
           <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>
           <button className={`${style.pluss} ${pluss === true ? style.pdf : ''}`} onClick={handlerPDF}>pdf</button>

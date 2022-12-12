@@ -1,5 +1,5 @@
 import React from 'react'
-import ParticleBackground from 'react-particle-backgrounds'
+import ParticleBackground from './ParticlesBackground'
 
 const Particles = () => {
 
