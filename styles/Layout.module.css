@@ -51,6 +51,7 @@
   background-image: url('../public/fondo-web.svg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   background-attachment: fixed;
 }
 
