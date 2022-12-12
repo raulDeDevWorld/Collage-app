@@ -8,6 +8,8 @@ import CollageQR from '../components/CollageQR'
 import { WithAuth } from '../HOCs/WithAuth'
 import Layout from '../layout/Layout'
 import Error from '../components/Error'
+import Success from '../components/Success'
+
 import Modal from '../components/Modal'
 import Button from '../components/Button'
 
@@ -87,7 +89,7 @@ function Home() {
       <div className={style.container}>
 
         <main className={style.main}>
-
+        <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid] !== undefined ? 'Eres Premium' : 'Activar cuenta'}</button>
           <Collage id={0} remove={()=>remove('pageOne')} />
           <Collage id={1} remove={()=>remove('pageTwo')} />
           <Collage id={2} remove={()=>remove('pageThree')} />
@@ -100,8 +102,9 @@ function Home() {
           <button className={`${style.pluss} ${style.plussFont}`} onClick={plussButton}>+</button> */}
           <button className={`${style.pluss} ${style.plussFont}`} onClick={handlerPDF}>pdf</button>
         </main>
-        {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
-        {success == 'complete' && <Error>Llene todo el formulario</Error>}
+        {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
+        {success == 'InUse' && <Error>ERROR: codigo en uso</Error>}
+        {success == 'Premium' && <Success>Felicidades, ERES PREMIUM !!</Success>}
         <Particles />
       </div>
       <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>

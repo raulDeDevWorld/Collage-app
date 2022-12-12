@@ -43,6 +43,7 @@
   align-items: center;
   border:  1.5mm solid rgb(229, 229, 229);
   margin: 5mm;
+  background-color: #525252;
 }
 
 .form:hover {
@@ -229,13 +230,27 @@
 
     align-items: center;
     justify-items: center;
-    background-color: rgba(255, 255, 255, 0.311);
+    background-color: rgba(255, 255, 255, 0);
     box-shadow: 0 0 5px 1px rgb(175, 175, 175);
     width: 100vw;
     min-width: 210mm;
     height: auto;
   
 
+  }
+
+
+  .form {
+    box-sizing: border-box;
+    position: relative;
+    width: 5cm;
+    height: 8cm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:  1.5mm solid rgb(229, 229, 229);
+    margin: 5mm;
+    background-color: #00000058;
   }
    /*
   .form {

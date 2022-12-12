@@ -57,8 +57,8 @@ function withGoogle () {
     // The signed-in user info.
     const user = result.user;
     // ...
-    console.log(user)
-    return writeUserData('/users', {[user.uid]:{displayName: user.displayName, email: user.email, uid: false, rol: user}})
+    const obj = {[user.uid]:{displayName: user.displayName, email: user.email}}
+    return writeUserData('/users/', obj)
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -109,9 +109,10 @@ function getSpecificData(query, setUserSpecificData) {
 }
 
 function writeUserData (rute, object, setUserSuccess) {
+  console.log('write')
   update(ref(db, rute), object )
-  .then(()=> setUserSuccess !== null? setUserSuccess('save'): '')
-  .catch(()=>setUserSuccess('repeat'))
+  .then(()=> setUserSuccess !== null? setUserSuccess('save'): console.log('Save'))
+  .catch(()=> setUserSuccess !== null?setUserSuccess('repeat'): console.log('no save'))
 }
 
 async function removeData (rute, setUserData, setUserSuccess) {
@@ -129,14 +130,14 @@ function getCode(code, uid, setUserSuccess){
                     update(ref(db, '/activadores'), {[code]: true} )
                     // db.ref(`/activadores/${code}`).set(true)
                     update(ref(db, `/${us}/${uid}`), { uid: code, date: Date()}) 
-                    setUserSuccess(true)
+                    setUserSuccess('Premium')
               }else{
                     console.log('ya esta en uso')
-                    setUserSuccess(false)
+                    setUserSuccess('InUse')
               }
         } else {
            console.log('no exist')
-           setUserSuccess(false)
+           setUserSuccess('NonExist')
         }
   })
 }
