@@ -94,7 +94,7 @@ function Home() {
           <Collage id={1} remove={()=>remove('pageTwo')} />
           <Collage id={2} remove={()=>remove('pageThree')} />
           <Collage id={3} remove={()=>remove('pageThree')} />
-          {/* <Collage id={4} remove={()=>remove('pageFour')} /> */}
+          <Collage id={4} remove={()=>remove('pageFour')} />
           {/* {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />} */}
           {/* <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
           <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>

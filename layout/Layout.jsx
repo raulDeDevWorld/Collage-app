@@ -24,18 +24,27 @@ export default function Layout(props) {
             <header className={style.header}>
                 <p>Bienvenido a OBZON</p>
                 <div className={style.containerButtons}>
-            {  userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol && userDB.users[user.uid].rol == 'Admin' &&
-              <>
-            {router.pathname == '/' || router.pathname && <Button style='buttonSecondary' click={()=>redirect('/')}>
-                        Home
-                    </Button>}
-                    {router.pathname != '/Admin' && <Button style='buttonSecondary' click={()=>redirect('/Admin')}>
-                        Admin
-                    </Button>}
-                    {router.pathname != '/UuidController' && <Button style='buttonSecondary' click={()=>redirect('/UuidController')}>
-                        Generar IDU
-                    </Button>}
-                    </>  }
+                    {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol && userDB.users[user.uid].rol == 'Admin' &&
+                        <>
+                            <Button style='buttonSecondary' click={() => redirect('/')}>
+                                Home
+                            </Button>
+                            <div className={style.power}>
+                                <Image src="/home.svg" width="26" height="26" alt="power" onClick={logout} />
+                            </div>
+                           <Button style='buttonSecondary' click={() => redirect('/Admin')}>
+                                Admin
+                            </Button>
+                            <div className={style.power}>
+                                <Image src="/user.svg" width="26" height="26" alt="power" onClick={logout} />
+                            </div>
+                           <Button style='buttonSecondary' click={() => redirect('/UuidController')}>
+                                Generar IDU
+                            </Button>
+                            <div className={style.power}>
+                                <Image src="/config.svg" width="26" height="26" alt="power" onClick={logout} />
+                            </div>
+                        </>}
                     <Button style='buttonSecondary' click={logout}>
                         Cerrar Sesion
                     </Button>

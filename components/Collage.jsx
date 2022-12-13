@@ -47,21 +47,26 @@ function Collage({ id, remove }) {
         <div className={style.grid} >
             {templates[id].map((i, index) =>
 
-                <div className={`${style.form}`} style={id === 2 && index > 6 ? { height: '83mm', width: '53mm' } : { height: '80mm', width: '50mm' }} draggable onDragStart={(e) => handleDragStart(e, index + (id * 9))} onDragEnter={(e) => handleDragEnter(e, index + (id * 9))} onDragEnd={handleDragEnd} key={index + (id * 9)}>
-                    <Img id={id} i={i} index={index} />
+                <div className={`${style.form}`} style={id === 2 && index > 6 ? { height: '83mm', width: '63mm' } : (id == 4 ? { width: '80mm', height: '60mm'}:  { height: '80mm', width: '60mm' })} draggable onDragStart={(e) => handleDragStart(e, index + (id * 9))} onDragEnter={(e) => handleDragEnter(e, index + (id * 9))} onDragEnd={handleDragEnd} key={index + (id * 9)}>
+                   
+                     <Img id={id} i={i} index={index} />
+                    
+                    
                 </div>)}
-                {id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
+            {id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
                 <QRCode
                     size={256}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                     value={qr}
                     viewBox={`0 0 256 256`}
                 />
-
                 <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />
             </div>
             }
+
         </div>
+
+
     )
 }
 export default Collage

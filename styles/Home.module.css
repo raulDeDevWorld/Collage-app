@@ -21,7 +21,7 @@
 .grid {
   position: relative;
   box-sizing: border-box;
-  padding: 1.2cm;
+  padding: 1cm;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -36,13 +36,11 @@
 .form {
   box-sizing: border-box;
   position: relative;
-  width: 5cm;
-  height: 8cm;
   display: flex;
   justify-content: center;
   align-items: center;
   border:  1.5mm solid rgb(229, 229, 229);
-  margin: 5mm;
+  margin: .5mm;
   background-color: #525252;
 }
 
@@ -53,18 +51,6 @@
 
 
 }
-
-.formQR {
-  position: relative;
-  width: 5cm;
-  height: 8cm;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-}
-
 .formActive {
   width: 90%;
   display: flex;
