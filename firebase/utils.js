@@ -57,8 +57,8 @@ function withGoogle () {
     // The signed-in user info.
     const user = result.user;
     // ...
-    const obj = {[user.uid]:{displayName: user.displayName, email: user.email}}
-    return writeUserData('/users/', obj)
+    const obj = {displayName: user.displayName, email: user.email}
+    return writeUserData('/users/' + user.uid, obj)
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;

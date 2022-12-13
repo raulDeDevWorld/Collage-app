@@ -29,14 +29,23 @@
 
 }
 
+.users :nth-child(n) {
+    width: 100%;
+}
 .green {
+    display: block;
+    width: 100%;
     color: greenyellow;
     font-weight: bold;
-
+    text-align: center;
 }
 .red {
+    display: block;
+    width: 100%;
     color: rgb(249, 84, 84);
     font-weight: bold;
+    text-align: center;
+
 }
 
 .subtitle {

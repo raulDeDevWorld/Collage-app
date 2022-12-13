@@ -1,4 +1,4 @@
-import { onAuth, signInWithEmail, handleSignOut,  removeData} from '../firebase/utils'
+import { onAuth, signInWithEmail, handleSignOut, removeData } from '../firebase/utils'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -13,7 +13,7 @@ import Button from '../components/Button'
 
 import style from '../styles/Admin.module.css'
 
-function Admin () {
+function Admin() {
   const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
   const router = useRouter()
 
@@ -93,19 +93,20 @@ function Admin () {
       <div className={style.container}>
 
         <main className={style.main}>
-        <h3 className={style.subtitle}> Administrar Usuarios</h3>
+          <h3 className={style.subtitle}> Administrar Usuarios</h3>
 
-            {userDB.users && 
+          {userDB.users &&
             <div>
-                {Object.keys(userDB.users).map((i, index)=>
-                       { user.uid == i && <div className={style.users}>    
-                        <span>{userDB.users[i].displayName}</span> <span className={userDB.users[i].uid !== false ? style.green : style.red}>{userDB.users[i].uid !== false ? 'Active' : 'No Active'}</span> <Button style='buttonPrimary' click={()=>remove(i)}>Eliminar</Button>
-                           </div>}
-                )}
+              {Object.keys(userDB.users).map((i, index) => {
+                return <div className={style.users}>
+                  <span>{userDB.users[i].displayName}</span> <span className={userDB.users[i].uid ? style.green : style.red}>{userDB.users[i].uid ? 'Active' : 'No Active'}</span> <Button style='buttonPrimary' click={() => remove(i)}>Eliminar</Button>
+                </div>
+              }
+              )}
             </div>}
 
 
-      
+
 
         </main>
         {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
@@ -116,7 +117,7 @@ function Admin () {
         <form className={style.formActive}>
           <input className={style.inputActive} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
           <div className={style.buttonsContainer}>
-          <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+            <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
           </div>
         </form>
       </Modal>

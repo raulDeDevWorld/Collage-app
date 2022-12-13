@@ -89,7 +89,7 @@ function Home() {
       <div className={style.container}>
 
         <main className={style.main}>
-        <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid] ? 'Eres Premium' : 'Activar cuenta'}</button>
+        <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid]  && userDB.users[user.uid].uid? 'Eres Premium' : 'Activar cuenta'}</button>
           <Collage id={0} remove={()=>remove('pageOne')} />
           <Collage id={1} remove={()=>remove('pageTwo')} />
           <Collage id={2} remove={()=>remove('pageThree')} />
