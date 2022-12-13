@@ -175,7 +175,7 @@ const PDFView = () => {
                         <View style={{...styles.form, width: '80mm', height: '60mm'}} key={i}>
                             <Image src='/heart.png' style={{ ...styles.heart , transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '8px' }}>{numeration[index + (4 * 9)]}</Text> </View>
-                            {image[`Image-${numeration[index + (4 * 9)]}`] && <Image src={image[`Image-${numeration[index + (4 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[4][index] == 'v' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[4][index] == 'v' ? '77mm' : '57mm', height: templates[4][index] == 'v' ? '57mm' : '77mm' }} />}
+                            {image[`Image-${numeration[index + (4 * 9)]}`] && <Image src={image[`Image-${numeration[index + (4 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[4][index] == 'v' ? '77mm' : '77mm', height: templates[4][index] == 'v' ? '57mm' : '57mm' }} />}
                         </View>)}
                 </Page>
                 <Page size='A4' style={{...styles.body, flexDirection: 'row-reverse'}} >
