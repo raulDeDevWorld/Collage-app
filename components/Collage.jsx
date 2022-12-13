@@ -44,14 +44,14 @@ function Collage({ id, remove }) {
 
 
     return (
-        <div className={style.grid} style={id=== 4 ? {display: 'flex', flexWrap: 'wrap'}: {display: 'grid',}}>
+        <div className={`${style.grid} ${id == 4 && style.flex}`} >
             {templates[id].map((i, index) =>
 
                 <div className={`${style.form}`} style={id === 2 && index > 6 ? { height: '83mm', width: '63mm' } : (id == 4 ? { width: '80mm', height: '60mm'}:  { height: '80mm', width: '60mm' })} draggable onDragStart={(e) => handleDragStart(e, index + (id * 9))} onDragEnter={(e) => handleDragEnter(e, index + (id * 9))} onDragEnd={handleDragEnd} key={index + (id * 9)}>
                    
                      <Img id={id} i={i} index={index} />
                     
-                    
+
                 </div>)}
             {id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
                 <QRCode
@@ -63,10 +63,7 @@ function Collage({ id, remove }) {
                 <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />
             </div>
             }
-
         </div>
-
-
     )
 }
 export default Collage

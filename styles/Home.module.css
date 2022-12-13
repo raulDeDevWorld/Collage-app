@@ -210,11 +210,10 @@
   .grid {
     position: relative;
     box-sizing: border-box;
-    padding: 15px 15px;
+    padding: .5mm;
     padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     align-items: center;
     justify-items: center;
     background-color: rgba(255, 255, 255, 0);
@@ -222,8 +221,11 @@
     width: 100vw;
     min-width: 210mm;
     height: auto;
-  
+  }
 
+  .flex {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
   }
 
 
@@ -236,7 +238,7 @@
     justify-content: center;
     align-items: center;
     border:  1.5mm solid rgb(229, 229, 229);
-    margin: 5mm;
+    margin: 2.5mm;
     background-color: #00000058;
   }
    /*
