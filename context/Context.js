@@ -34,8 +34,9 @@ export function UserProvider({ children }) {
 		  'v', 'v', 'v',
 		  'v',  ],
 		[
-			'v', 'v', 'v',
-			'v', 'v', 'h',
+			'v', 'v',
+			 'v','v', 
+			 'v', 'h',
 			'v', 'h',
 		],
 		])

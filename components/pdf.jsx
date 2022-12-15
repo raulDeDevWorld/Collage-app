@@ -81,9 +81,6 @@ const PDFView = () => {
                             <View style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '8px' }}>{numeration[index + (0 * 9)]}</Text> </View>
                         </View>)}
                 </Page>
-
-
-
                 <Page size='A4' style={styles.body} >
                     {templates[1].map((i, index) =>
                         <View style={styles.form} key={i}>
@@ -100,10 +97,6 @@ const PDFView = () => {
                             <View style={{ ...styles.heart, transform: `rotate(${templates[1][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '8px' }}>{numeration[index + (1 * 9)]}</Text> </View>
                         </View>)}
                 </Page>
-
-
-
-
                 <Page size='A4' style={styles.body} >
                     {templates[2].map((i, index) =>
                         <View style={{
@@ -133,10 +126,6 @@ const PDFView = () => {
                             <View style={{ ...styles.heart, transform: `rotate(${templates[2][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '8px' }}>{numeration[index + (2 * 9)]}</Text> </View>
                         </View>)}
                 </Page>
-
-
-
-
                 <Page size='A4' style={styles.body} >
                     {templates[3].map((i, index) =>
                         <View style={styles.form} key={i}>
@@ -165,17 +154,12 @@ const PDFView = () => {
                 </Page>
 
 
-
-
-
-
-
                 <Page size='A4' style={styles.body} >
                     {templates[4].map((i, index) =>
-                        <View style={{...styles.form, width: '80mm', height: '60mm'}} key={i}>
+                        <View style={{...styles.form, width: '80mm', height: '60mm', }} key={i}>
                             <Image src='/heart.png' style={{ ...styles.heart , transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '8px' }}>{numeration[index + (4 * 9)]}</Text> </View>
-                            {image[`Image-${numeration[index + (4 * 9)]}`] && <Image src={image[`Image-${numeration[index + (4 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[4][index] == 'v' ? '77mm' : '77mm', height: templates[4][index] == 'v' ? '57mm' : '57mm' }} />}
+                            {image[`Image-${numeration[index + (4 * 9)]}`] && <Image src={image[`Image-${numeration[index + (4 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[4][index] == 'h' ? '57mm' : '77mm', height: templates[4][index] == 'h' ? '77mm' : '57mm', position: 'absolute' }} />}
                         </View>)}
                 </Page>
                 <Page size='A4' style={{...styles.body, flexDirection: 'row-reverse'}} >
@@ -200,8 +184,13 @@ export default PDFView
 
 
 
-// {arrA.map((i, index) =>
-//     <View className={styles.form} key={i}>
-//          <Image src={`${image[i].url}`} style={{...styles.image, transform: `rotate(${dataOrientations[index] == 'h' ? '90': '0' }deg )`, objectFit: 'cover' , backgroundImage: `url(${image[i].url})`,   width: dataOrientations[index] == 'h' ? '303px' : '189px', height: dataOrientations[index] == 'h' ? '189px' : '303px' }}/>
-//     </View>)}
-{/* <span className={style.heart} style={{transform: `rotate(${dataOrientations[index] == 'h' ? '90': '0' }deg )`}}>{numeration[index]}</span> */ }
+
+
+
+
+
+
+
+
+
+
