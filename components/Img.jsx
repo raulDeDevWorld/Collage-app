@@ -1,4 +1,4 @@
-import style from '../styles/Img.module.css'
+import style from '../styles/Collage.module.css'
 import { useUser } from '../context/Context'
 
 export default function Img({id, i, index,}) {

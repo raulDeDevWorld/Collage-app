@@ -83,8 +83,6 @@ function Home() {
   }
 
   return (
-
-
     <Layout>
       <div className={style.container}>
 
@@ -116,7 +114,6 @@ function Home() {
         </form>
       </Modal>
     </Layout>
-
   )
 }
 
