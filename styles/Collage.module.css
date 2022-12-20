@@ -80,7 +80,23 @@
     display: none;
 }
 
+.grid4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
 
+.grid4  > :nth-child(n) {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media (max-width: 850px) {

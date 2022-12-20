@@ -104,8 +104,31 @@ function Collage({ id, remove }) {
                             onDragEnd={handleDragEnd} key={index + (id * 9)}
                         />}
 
-                    <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>
-                    <label htmlFor={`Image-${numeration[index + (id * 9)]}`} className={style.labelFile} >Cargar Imagen {numeration.indexOf(numeration[index + (id * 9)]) + 1}</label>
+                    {id < 4 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 4 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
+                    {numeration.indexOf(numeration[index + (4 * 9)]) > 36 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 4 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
+                    {id === 4 && numeration.indexOf(numeration[index + (4 * 9)]) === 36 && <div className={style.grid4}>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>37</span>
+
+                        </div>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>38</span>
+
+                        </div>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>39</span>
+
+                        </div>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>40</span>
+
+                        </div>
+
+
+
+                    </div>}
+
+                    <label htmlFor={`Image-${numeration[index + (id * 9)]}`} className={style.labelFile} >Cargar Imagen {id === 4 && numeration.indexOf(numeration[index + (4 * 9)]) === 36 ? '37 al 40' : (numeration.indexOf(numeration[index + (4 * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9) + 4]) :numeration.indexOf(numeration[index + (id * 9)]) + 1)}</label>
                     <input className={style.inputFile} id={`Image-${numeration[index + (id * 9)]}`} type="file" name={`Image-${numeration[index + (id * 9)]}`} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
                 </div>)
 
