@@ -154,7 +154,7 @@ const PDFView = () => {
                         viewBox={`0 0 256 256`}
                     /> */}
                     <View style={{...styles.form, border: 'none'}} key={'qr'} >
-                        <Image src={dataUrl ? dataUrl: 'qr.jpg'} style={{ ...styles.image, objectFit: 'cover', width: '6cm', height: '6cm', border: 'none'}} />
+                        <Image src={dataUrl ? dataUrl: 'qr.jpg'} style={{ ...styles.image, objectFit: 'cover', width: '3.5cm', height: '3.5cm', border: 'none'}} />
                     </View>
                 </Page>
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
