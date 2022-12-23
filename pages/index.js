@@ -76,14 +76,14 @@ function Home() {
     setQr(!qr)
   }
   function handlerPDF() {
-    router.push('/PdfViewer')
+router.push('/PdfViewer')    
   }
   function x() {
     setMode(!mode)
   }
 
   return (
-    <Layout>
+    <Layout >
       <div className={style.container}>
 
         <main className={style.main}>

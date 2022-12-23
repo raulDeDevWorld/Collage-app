@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
-import QRCode from "react-qr-code";
+import QRCode from "qrcode.react";
 
 import { useUser } from '../context/Context'
 import Img from '../components/Img'
 import style from '../styles/Collage.module.css'
 
 function Collage({ id, remove }) {
-    const { numeration, setAlbunNumeration, templates, qr, setQr, image, setAlbunImage, } = useUser()
+    const { numeration, setAlbunNumeration, templates, qr, setQr, image, setAlbunImage,dataUrl, setDataUrl } = useUser()
 
     const dragItem = useRef();
     const dragOverItem = useRef();
@@ -23,11 +23,10 @@ function Collage({ id, remove }) {
     };
 
     const handleDragEnd = (e, index) => {
-        console.log(dragItem)
-        console.log(dragOverItem)
-
+      
+        let q = document.getElementById('qr')
+        console.log(q.toDataURL())
         if (dragOverItem.current !== undefined) {
-            console.log('end' + index)
             const copyListItems = [...numeration];
             [copyListItems[dragItem.current], copyListItems[dragOverItem.current]] = [copyListItems[dragOverItem.current], copyListItems[dragItem.current]]
             setAlbunNumeration(copyListItems);
@@ -36,11 +35,12 @@ function Collage({ id, remove }) {
         }
     };
 
-    console.log(QRCode)
+    console.log(dataUrl)
 
     const handlerQRUrl = (e) => {
         const qr = e.target.value
         setQr(qr)
+   
     };
 
     function handlerOnChange(e) {
@@ -51,6 +51,9 @@ function Collage({ id, remove }) {
         console.log(e.target.value)
     }
 
+useEffect(() => {
+    setDataUrl(document.getElementById('qr').toDataURL())
+}, [qr]);
 
     return (
         <div className={`${style.grid} ${id == 4 && style.flex}`} >
@@ -137,9 +140,13 @@ function Collage({ id, remove }) {
             {
                 id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>
                     <QRCode
+                        id='qr'
                         size={256}
-                        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                        style={{ height: "auto", maxWidth: "100%", width: "100%", border: 'none'}}
                         value={qr}
+                        level={'H'}
+                        includeMargin={false}
+                        renderAs={'canvas'}
                         viewBox={`0 0 256 256`}
                     />
                     <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />

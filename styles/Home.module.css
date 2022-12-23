@@ -1,11 +1,10 @@
 .container {
-  position: relative;
+  position: a;
   /* background-color: blue; */
   padding-top: 90px;
   padding-bottom: 70px;
   height: 100%;
-  width: 100vw;
-  min-width: 210mm;
+  width: 100%;
   display: flex;
   flex-direction: column;
   /* centrado vertical */
@@ -204,7 +203,9 @@
   padding: 10px 35px;
 } 
 
+.main {
 
+}
 
 @media (max-width: 850px) {
   .grid {
@@ -240,6 +241,27 @@
     border:  1.5mm solid rgb(229, 229, 229);
     margin: 2.5mm;
     background-color: #00000058;
+  }
+
+  .pluss {
+    cursor: pointer;
+    position: fixed;
+    padding: 0px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ffffff;
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    color: #DE0322;
+    border: none;
+    transition: .3s all;
+    font-size: 25px;
   }
    /*
   .form {

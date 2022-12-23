@@ -6,7 +6,7 @@ import Button from '../components/Button'
 import style from '../styles/Layout.module.css'
 import { useUser } from '../context/Context'
 
-export default function Layout(props) {
+export default function Layout(props, {width}) {
     const router = useRouter()
 
 
@@ -53,7 +53,7 @@ export default function Layout(props) {
                     </div>
                 </div>
             </header>
-            <main className={style.main}>{props.children}</main>
+            <main className={style.main} style={{minWidth: width ? width : '100vw'}}>{props.children}</main>
         </>
 
     )

@@ -31,6 +31,18 @@ const styles = StyleSheet.create({
         margin: '.5mm'
     },
 
+    formReverse: {
+        boxSizing: 'border-box',
+        position: 'relative',
+        width: '6cm',
+        height: '8cm',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        border: '1mm dashed rgb(229, 229, 229)',
+        margin: '.5mm'
+    },
+
 
     image: {
         boxSizing: 'border-box',
@@ -56,8 +68,8 @@ const styles = StyleSheet.create({
 })
 
 const PDFView = () => {
-    const { image, setAlbunImage, templates, numeration, qr } = useUser()
-
+    const { image, setAlbunImage, templates, numeration, qr, dataUrl } = useUser()
+    console.log(dataUrl)
     return (
         <PDFViewer>
 
@@ -65,7 +77,7 @@ const PDFView = () => {
 
                 <Page size='A4' style={styles.body} >
                     {templates[0].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.form} key={`A-${numeration[index + (0 * 9)]}`}>
 
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (0 * 9)]}</Text> </View>
@@ -75,7 +87,7 @@ const PDFView = () => {
                 </Page>
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
                     {templates[0].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.formReverse} key={`R-${numeration[index + (0 * 9)]}`}>
 
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (0 * 9)]}</Text> </View>
@@ -83,7 +95,7 @@ const PDFView = () => {
                 </Page>
                 <Page size='A4' style={styles.body} >
                     {templates[1].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.form} key={`A-${numeration[index + (1 * 9)]}`}>
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[1][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[1][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (1 * 9)]}</Text> </View>
 
@@ -92,7 +104,7 @@ const PDFView = () => {
                 </Page>
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
                     {templates[1].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.formReverse} key={`R-${numeration[index + (1 * 9)]}`}>
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[1][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[1][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (1 * 9)]}</Text> </View>
                         </View>)}
@@ -103,7 +115,7 @@ const PDFView = () => {
                             ...styles.form,
                             height: index > 6 ? '83mm' : '80mm',
                             width: index > 6 ? '63mm' : '60mm'
-                        }} key={i}>
+                        }} key={`A-${numeration[index + (2 * 9)]}`}>
                             <Image src='/heart.png' style={{
                                 ...styles.heart,
                                 transform: `rotate(${templates[2][index] == 'h' ? '90' : '0'}deg )`,
@@ -121,14 +133,14 @@ const PDFView = () => {
                 </Page>
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
                     {templates[2].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.formReverse} key={`R-${numeration[index + (2 * 9)]}`}>
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[2][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[2][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (2 * 9)]}</Text> </View>
                         </View>)}
                 </Page>
                 <Page size='A4' style={styles.body} >
                     {templates[3].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.form} key={`A-${numeration[index + (3 * 9)]}`}>
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (3 * 9)]}</Text> </View>
 
@@ -141,13 +153,13 @@ const PDFView = () => {
                         value={qr}
                         viewBox={`0 0 256 256`}
                     /> */}
-                    <View style={styles.form} >
-                        <Image src='/qr.jpg' style={{ ...styles.image, transform: `rotate(0deg)`, objectFit: 'cover', width: '47mm', height: '77mm' }} />
+                    <View style={{...styles.form, border: 'none'}} key={'qr'} >
+                        <Image src={dataUrl ? dataUrl: 'qr.jpg'} style={{ ...styles.image, objectFit: 'cover', width: '6cm', height: '6cm', border: 'none'}} />
                     </View>
                 </Page>
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
                     {templates[3].map((i, index) =>
-                        <View style={styles.form} key={i}>
+                        <View style={styles.formReverse} key={`R-${numeration[index + (3 * 9)]}`}>
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (3 * 9)]}</Text> </View>
                         </View>)}
@@ -156,7 +168,7 @@ const PDFView = () => {
 
                 <Page size='A4' style={styles.body} >
                     {templates[4].map((i, index) =>
-                        <View style={{ ...styles.form, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '60mm' : '120mm' }} key={i}>
+                        <View style={{ ...styles.form, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '60mm' : '120mm' }} key={`A-${numeration[index + (4 * 9)]}`}>
 
 
 
@@ -164,21 +176,21 @@ const PDFView = () => {
 
                             {numeration.indexOf(numeration[index + (4 * 9)]) == 36 && <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: '100%', position: 'absolute', top: '0' }}>
 
-                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)' }} key={i} >
+                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)' }}  >
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>37</Text>
                                 </View>
-                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} >
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>38</Text>
                                 </View>
                             </View>}
                             {numeration.indexOf(numeration[index + (4 * 9)]) == 36 && <View style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '58.5mm', position: 'absolute', bottom: '0' }} >
-                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }}>
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>39</Text>
                                 </View>
-                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} >
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>40</Text>
                                 </View>
@@ -238,24 +250,24 @@ const PDFView = () => {
 
                 <Page size='A4' style={{ ...styles.body, flexDirection: 'row-reverse' }} >
                     {templates[4].map((i, index) =>
-                        <View style={{ ...styles.form, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '60mm' : '120mm' }} key={i}>
+                        <View style={{ ...styles.formReverse , display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '60mm' : '120mm' }} key={`R-${numeration[index + (4 * 9)]}`}>
                             {numeration.indexOf(numeration[index + (4 * 9)]) == 36 && <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: '100%', position: 'absolute', top: '0' }}>
 
-                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)' }} key={i} >
+                                <View style={{ width: '50%', height: '59.5mm', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1mm dashed rgb(229, 229, 229)', borderTop: 'none', borderLeft: 'none' }} >
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>37</Text>
                                 </View>
-                                <View style={{ width: '50%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '50%', height: '59.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1mm dashed rgb(229, 229, 229)', borderTop: 'none', borderRight: 'none'}}>
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>38</Text>
                                 </View>
                             </View>}
                             {numeration.indexOf(numeration[index + (4 * 9)]) == 36 && <View style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '58.5mm', position: 'absolute', bottom: '0' }} >
-                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '100%', height: '59.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1mm dashed rgb(229, 229, 229)', borderBottom: 'none', borderLeft: 'none'}}>
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>39</Text>
                                 </View>
-                                <View style={{ width: '100%', height: '58.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} key={i}>
+                                <View style={{ width: '100%', height: '59.5mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1mm dashed rgb(229, 229, 229)', borderBottom: 'none', borderRight: 'none'}}>
                                     <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                                     <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>40</Text>
                                 </View>
