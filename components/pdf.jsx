@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     image: {
         boxSizing: 'border-box',
         position: 'relative',
-        backgroundColor: 'red',
         objectFit: 'cover'
     },
     heart: {

@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: 'white',
         boxShadow: '0 0 5px 1px rgb(175, 175, 175)',
-
     },
  
 
