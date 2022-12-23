@@ -30,19 +30,19 @@ export default function Layout(props, {width}) {
                                 Home
                             </Button>
                             <div className={style.power}>
-                                <Image src="/home.svg" width="26" height="26" alt="power" onClick={logout} />
+                                <Image src="/home.svg" width="26" height="26" alt="power" onClick={() => redirect('/')} />
                             </div>
                            <Button style='buttonSecondary' click={() => redirect('/Admin')}>
                                 Admin
                             </Button>
                             <div className={style.power}>
-                                <Image src="/user.svg" width="26" height="26" alt="power" onClick={logout} />
+                                <Image src="/user.svg" width="26" height="26" alt="power" onClick={() => redirect('/Admin')} />
                             </div>
                            <Button style='buttonSecondary' click={() => redirect('/UuidController')}>
                                 Generar IDU
                             </Button>
                             <div className={style.power}>
-                                <Image src="/config.svg" width="26" height="26" alt="power" onClick={logout} />
+                                <Image src="/config.svg" width="26" height="26" alt="power" onClick={() => redirect('/UuidController')} />
                             </div>
                         </>}
                     <Button style='buttonSecondary' click={logout}>
