@@ -16,6 +16,8 @@ export function UserProvider({ children }) {
 	const [pageThree, setPageThree] = useState(true);
 	const [pageQR, setPageQR] = useState(true);
 	const [qr, setQr] = useState('swoou.com');
+	const [uuid, setUuid] = useState([])
+
 
 	const [dataUrl, setDataUrl] = useState('');
 	const [templates, setTemplates] = useState([
@@ -94,6 +96,7 @@ export function UserProvider({ children }) {
 			templates,
 			qr,
 			dataUrl,
+			uuid,
 			setUserProfile,
 			setUserData,
 			setUserSuccess,
@@ -101,9 +104,10 @@ export function UserProvider({ children }) {
 			handlerPageView,
 			setAlbunNumeration,
 			setQr,
-			setDataUrl
+			setDataUrl,
+			setUuid,
 		})
-	}, [user, userDB, success, image, numeration, pageOne, pageTwo, pageThree, qr, dataUrl])
+	}, [user, userDB, success, image, numeration, pageOne, pageTwo, pageThree, qr, dataUrl, uuid])
 
 	return (
 		<UserContext.Provider value={value} >

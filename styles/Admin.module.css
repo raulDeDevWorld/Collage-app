@@ -5,7 +5,7 @@
     padding-bottom: 70px;
     height: 100%;
     width: 100vw;
-    min-width: 770px;
+    min-width: 210mm;
     display: flex;
     flex-direction: column;
     /* centrado vertical */
@@ -15,7 +15,7 @@
     color: rgb(255, 255, 255);
     font-size: 14px;
     background-attachment: fixed;
-    
+
 }
 
 
@@ -32,6 +32,7 @@
 .users :nth-child(n) {
     width: 100%;
 }
+
 .green {
     display: block;
     width: 100%;
@@ -39,6 +40,7 @@
     font-weight: bold;
     text-align: center;
 }
+
 .red {
     display: block;
     width: 100%;
@@ -51,4 +53,14 @@
 .subtitle {
     font-size: 30px;
     text-align: center;
+}
+
+
+
+
+@media (max-width: 850px) {
+
+    .users {
+        width: 100%;
+    }
 }

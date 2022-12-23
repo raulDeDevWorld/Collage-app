@@ -6,25 +6,29 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .logo {
     height: auto;
     width: 150px;
     border-radius: 150px;
 }
+
 .buttons {
     text-align: center;
 }
 
-.buttons > :nth-child(n) {
+.buttons> :nth-child(n) {
     text-align: center;
     border-radius: 5px;
 }
+
 .box {
     position: relative;
     box-sizing: border-box;
@@ -35,7 +39,8 @@
     justify-items: center;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 5px 1px rgb(175, 175, 175);
-    width: 794px;
-    height: 1123px;
+    width: 210mm;
+    height: 297mm;
     z-index: 100;
+    font-size: 14px;
 }

@@ -8,11 +8,12 @@ import Image from 'next/image'
 import Layout from '../layout/Layout'
 import { useUser } from '../context/Context.js'
 
+import { useRouter } from 'next/router'
 
 export default function UuidController() {
-  const { user, userDB, setUserSuccess, success } = useUser()
+  const { user, userDB, setUserSuccess, success, uuid, setUuid} = useUser()
+  const router = useRouter()
 
-  const [uuid, setUuid] = useState([])
 
   function generate() {
     let uuidGenerates = []
@@ -31,6 +32,10 @@ export default function UuidController() {
     return writeUserData('/activadores', obj, setUserSuccess )
   }
 
+
+  function redirect () {
+    router.push('/PDFdoc')
+  }
   useEffect(() => {
 
   }, []);
@@ -55,8 +60,12 @@ export default function UuidController() {
                 {uuid.map((i, index) => <div key={index}>{i} <br /> <br /></div>)}
               </div>
               <br />
-              <Button click={añadir} style={'buttonPrimary'}>añadir</Button>
+              <Button click={añadir} style={'buttonPrimary'}>añadir</Button> <br />
+              <br />
 
+              <Button click={redirect} style={'buttonPrimary'}>Descargar PDF</Button>
+              <br />
+              <br />
 
             </div>
 
