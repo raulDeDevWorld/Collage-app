@@ -21,7 +21,7 @@
 
 .users {
     display: flex;
-    width: 50vw;
+    width: 60vw;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 5px;
@@ -31,6 +31,7 @@
 
 .users :nth-child(n) {
     width: 100%;
+    margin: auto 2px;
 }
 
 .green {

@@ -22,14 +22,10 @@
     border: 2px solid #E51F22;
 }
 .buttonPrimary:hover {
-    color: #ffffff;
-    background-color: #000000;
+    color: #E51F22;
+    background-color: #00000000;
     border: 2px solid #E51F22;
 
-    animation-name: animationRed;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-    animation-delay: 0;
 }
 .buttonSecondary {
     color: #205054;
