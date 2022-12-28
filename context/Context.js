@@ -3,7 +3,6 @@ import React, { useState, useMemo, useContext } from 'react'
 const UserContext = React.createContext()
 
 export function UserProvider({ children }) {
-
 	// Data de un usuario proveido por FIREBASE AUTHENTICATION
 	const [user, setUser] = useState(undefined)
 	// Data de un usuario proveido por FIREBASE DATABASE
@@ -39,7 +38,6 @@ export function UserProvider({ children }) {
 		  'v',  ],
 		[
 			'v', 
-			 'h', 'v',
 			'h', 'v',
 		],
 		])

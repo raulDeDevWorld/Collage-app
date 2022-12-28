@@ -16,6 +16,7 @@
 }
 
 .contBlue {
+  position: relative;
   background-image: url('../public/fondo-web.svg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -31,6 +32,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: 85%;
   min-width: 250px;
   height: 350px;
@@ -39,6 +41,7 @@
   padding: 5px;
   z-index: 100000000;
   box-shadow: 0 0 2px 2px #E51F22;
+
   
 
 }
@@ -56,8 +59,8 @@
 }
 
 .modalBoot {
-  width: 150px;
-  height: 150;
+  width: auto;
+  height: 150px;
  border-radius: 150px;
  box-shadow: 0 0 2px 2px #E51F22;
 

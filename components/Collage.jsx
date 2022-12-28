@@ -66,7 +66,7 @@ useEffect(() => {
                             ? { height: '83mm', width: '63mm' }
                             : (
                                 id == 4 && numeration.indexOf(numeration[index + (id * 9)]) !== 36
-                                    ? { width: '80mm', height: '60mm' }
+                                    ? { width: '80mm', height: '120mm' }
                                     : numeration.indexOf(numeration[index + (id * 9)]) == 36
                                         ? { height: '120mm', width: '160mm' }
                                         : { height: '80mm', width: '60mm' }
@@ -90,7 +90,7 @@ useEffect(() => {
                                     ? (id === 2 && index > 6
                                         ? '80mm'
                                         : (numeration.indexOf(numeration[index + (id * 9)]) > 36
-                                            ? '57mm' : '77mm'))
+                                            ? '117mm' : '77mm'))
                                     : '100%',
 
                                 height: templates[id][index] == 'h'
@@ -107,9 +107,20 @@ useEffect(() => {
                             onDragEnd={handleDragEnd} key={index + (id * 9)}
                         />}
 
-                    {id < 4 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 4 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
-                    {numeration.indexOf(numeration[index + (4 * 9)]) > 36 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 4 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
+                    {id < 4 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36
+                     ? numeration.indexOf(numeration[index + (id * 9)]) + 2 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
+                    {numeration.indexOf(numeration[index + (4 * 9)]) > 36 && <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>{numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 2
+                    
+                     : numeration.indexOf(numeration[index + (id * 9)]) + 1}</span>}
                     {id === 4 && numeration.indexOf(numeration[index + (4 * 9)]) === 36 && <div className={style.grid4}>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>35</span>
+
+                        </div>
+                        <div>
+                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>36</span>
+
+                        </div>
                         <div>
                             <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>37</span>
 
@@ -118,24 +129,14 @@ useEffect(() => {
                             <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>38</span>
 
                         </div>
-                        <div>
-                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>39</span>
-
-                        </div>
-                        <div>
-                            <span className={style.heart} style={{ transform: `rotate(${templates[id][index] == 'h' ? '90' : '0'}deg )`, }}>40</span>
-
-                        </div>
 
 
 
                     </div>}
 
-                    <label htmlFor={`Image-${numeration[index + (id * 9)]}`} className={style.labelFile} >Cargar Imagen {id === 4 && numeration.indexOf(numeration[index + (4 * 9)]) === 36 ? '37 al 40' : (numeration.indexOf(numeration[index + (4 * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9) + 4]) :numeration.indexOf(numeration[index + (id * 9)]) + 1)}</label>
+                    <label htmlFor={`Image-${numeration[index + (id * 9)]}`} className={style.labelFile} >Cargar Imagen {numeration.indexOf(numeration[index + (id * 9)]) > 36 ? numeration.indexOf(numeration[index + (id * 9)]) + 2 : numeration.indexOf(numeration[index + (id * 9)]) + 1}</label>
                     <input className={style.inputFile} id={`Image-${numeration[index + (id * 9)]}`} type="file" name={`Image-${numeration[index + (id * 9)]}`} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
                 </div>)
-
-
             }
             {
                 id === 3 && <div style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }}>

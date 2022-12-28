@@ -1,4 +1,4 @@
-import { onAuth, signInWithEmail, handleSignOut, removeData } from '../firebase/utils'
+import { onAuth, signInWithEmail, handleSignOut, removeData, writeUserData } from '../firebase/utils'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -75,10 +75,18 @@ function Admin() {
     setPluss(!pluss)
   }
 
-  function remove(i) {
+  function active(i) {
+    const obj = {
+      uid: 'active'
+    }
+    writeUserData(`/users/${i}`, obj, setUserSuccess)
+  }
+  function desactive (i) {
+    removeData(`/users/${i}/uid`, setUserData, setUserSuccess)
+  }
+   function remove(i) {
     removeData(`/users/${i}`, setUserData, setUserSuccess)
   }
-
   function removeQR() {
     setQr(!qr)
   }
@@ -99,7 +107,11 @@ function Admin() {
             <div>
               {Object.keys(userDB.users).map((i, index) => {
                 return <div className={style.users}>
-                  <span>{userDB.users[i].displayName}</span> <span className={userDB.users[i].uid ? style.green : style.red}>{userDB.users[i].uid ? 'Active' : 'No Active'}</span> <Button style='buttonPrimary' click={() => remove(i)}>Eliminar</Button>
+                  <span>{userDB.users[i].displayName}</span> 
+                  <span className={userDB.users[i].uid ? style.green : style.red}>{userDB.users[i].uid ? 'Active' : 'No Active'}</span> 
+                  <Button style='buttonSecondary' click={() => active(i)}>Activar</Button>
+                  <Button style='buttonSecondary' click={() => desactive(i)}>Desactivar</Button>
+                  <Button style='buttonPrimary' click={() => remove(i)}>Eliminar</Button>
                 </div>
               }
               )}

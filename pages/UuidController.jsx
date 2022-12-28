@@ -34,7 +34,12 @@ export default function UuidController() {
 
 
   function redirect () {
+    const obj = uuid.reduce(function (target, key, index) {
+      target[key] = false
+      return target;
+    }, {})
     router.push('/PDFdoc')
+    return writeUserData('/activadores', obj, setUserSuccess )     
   }
   useEffect(() => {
 
@@ -57,13 +62,20 @@ export default function UuidController() {
               <Button click={generate} style={'buttonPrimary'}>generate</Button>
               <br /> <br />
               <div className={styles.box}>
-                {uuid.map((i, index) => <div key={index}>{i} <br /> <br /></div>)}
+                {uuid.map((i, index) => <div key={index}>
+                  
+                <img src='/logo.png' className={styles.image}></img>
+                <p className={styles.text}>Gracias por tu compra</p>
+                <p className={styles.text}>Tu codigo de activación es el:</p>
+                  <p className={styles.text}>{i}</p>
+                  
+            </div>)}
               </div>
               <br />
-              <Button click={añadir} style={'buttonPrimary'}>añadir</Button> <br />
-              <br />
+              {/* <Button click={añadir} style={'buttonPrimary'}>añadir</Button> <br />
+              <br /> */}
 
-              <Button click={redirect} style={'buttonPrimary'}>Descargar PDF</Button>
+              <Button click={redirect} style={'buttonPrimary'}>Añadir / Descargar PDF</Button>
               <br />
               <br />
 

@@ -16,7 +16,7 @@ import Button from '../components/Button'
 import style from '../styles/Home.module.css'
 
 function Home() {
-  const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView} = useUser()
+  const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView } = useUser()
   const router = useRouter()
 
   const [mode, setMode] = useState(false)
@@ -45,7 +45,7 @@ function Home() {
 
   function backClick(e) {
     e.preventDefault()
-    router.back()
+    router.p()
   }
 
   function arrItemsHandler() {
@@ -76,7 +76,7 @@ function Home() {
     setQr(!qr)
   }
   function handlerPDF() {
-router.push('/PdfViewer')    
+    router.push('/PdfViewer')
   }
   function x() {
     setMode(!mode)
@@ -87,12 +87,12 @@ router.push('/PdfViewer')
       <div className={style.container}>
 
         <main className={style.main}>
-        <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid]  && userDB.users[user.uid].uid? 'Eres Premium' : 'Activar cuenta'}</button>
-          <Collage id={0} remove={()=>remove('pageOne')} />
-          <Collage id={1} remove={()=>remove('pageTwo')} />
-          <Collage id={2} remove={()=>remove('pageThree')} />
-          <Collage id={3} remove={()=>remove('pageThree')} />
-          <Collage id={4} remove={()=>remove('pageFour')} />
+          <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? 'Eres Premium' : 'Activar cuenta'}</button>
+          <Collage id={0} remove={() => remove('pageOne')} />
+          <Collage id={1} remove={() => remove('pageTwo')} />
+          <Collage id={2} remove={() => remove('pageThree')} />
+          <Collage id={3} remove={() => remove('pageThree')} />
+          <Collage id={4} remove={() => remove('pageFour')} />
           {/* {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />} */}
           {/* <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
           <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>
@@ -105,11 +105,17 @@ router.push('/PdfViewer')
         {success == 'Premium' && <Success>Felicidades, ERES PREMIUM !!</Success>}
         <Particles />
       </div>
-      <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>
+      <Modal mode={mode} click={x} text={userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? 'Felicidades Eres Premium' : 'Ingresa tu codigo de activación'}>
         <form className={style.formActive}>
-          <input className={style.inputActive} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
+
+          {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid
+            ? <p className={style.codeActive}>   {userDB.users[user.uid].uid}     </p>
+
+
+            : <input className={style.inputActive} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
+          }
           <div className={style.buttonsContainer}>
-          <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
+          {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ?'': <Button style='buttonPrimary' click={nextClick}>Continuar</Button>}
           </div>
         </form>
       </Modal>
