@@ -27,29 +27,98 @@
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 5px 1px rgb(175, 175, 175);
-  width: 210mm;
-  height: 297mm;
+  width: 90vw;
+  max-width: 210mm;
+  height: auto;
   z-index: 100;
 
 }
+.separator {
+  background-color: #b9b9b9;
+  height: 1px;
+  width: 100%;
+  margin: 5mm 0;
 
-.form {
+}
+
+.figureOne {
   box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  border:  1.5mm solid rgb(229, 229, 229);
+  border:  2mm solid rgb(229, 229, 229);
   margin: .5mm;
   background-color: #525252;
+  height: 8cm;
+  width: 6cm;
 }
-
-.form:hover {
+.figureTwo {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  2mm solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 8.3cm;
+  width: 6.3cm;
+}
+.figureThree {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  2mm solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 12cm;
+  width: 16cm;
+}
+.figureFour {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  2mm solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 12cm;
+  width: 8cm;
+}
+.formOne:hover {
   transition-property: all;
   transition-duration: .5s;
   background-color: rgb(68, 57, 57);
+}
 
+.figureOneIMGRotate {
+  position: absolute;
+  object-fit: cover;
+  height: 60mm;
+  width: 80mm;
+  border:  2mm solid transparent;
+  transform: rotate(90deg);
+}
 
+.figureTwoIMGRotate {
+  position: absolute;
+  object-fit: cover;
+  height: 63mm;
+  width: 83mm;
+  border:  2mm solid transparent;
+  transform: rotate(90deg);
+}
+.figureFourIMGRotate {
+  position: absolute;
+  object-fit: cover;
+  height: 80mm;
+  width: 120mm;
+  border:  2mm solid transparent;
+  transform: rotate(90deg);
 }
 .formActive {
   width: 90%;
@@ -64,27 +133,13 @@
   display: flex;
   justify-content: center;
 }
-/* .labelFile {
-  position: relative;
-  cursor: pointer;
-  width: 5cm;
-  height: 8cm;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: rgb(219, 219, 219);
-  padding: 5px 15px;
-
-  border: 1px solid #959595;;
-  border-radius: 3px;
-
-  transition-property: all;
-  transition-duration: .5s;
-  border: none;
+.qr {
+height: 3.5cm;
+width: 3.5cm;
+margin-right: 60mm;
 }
- */
+
 
 .inputFile {
   display: none;
@@ -216,7 +271,68 @@
 }
 
 @media (max-width: 850px) {
-  .grid {
+
+.grid {
+  padding: 2vw;
+  min-width: 100vw;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 11px;
+
+}
+
+.figureOne {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  .6vw solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 40vw;
+  width: 30vw;
+}
+.figureTwo {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  .6vw solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 40.15vw;
+  width: 30.15vw;
+}
+.figureThree {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  .6vw solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 60vw;
+  width: 80vw;
+}
+.figureFour {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:  .6vw solid rgb(229, 229, 229);
+  margin: .5mm;
+  background-color: #525252;
+  height: 60vw;
+  width: 40vw;
+}
+
+
+
+
+  /* .grid {
     position: relative;
     box-sizing: border-box;
     padding: .5mm;
@@ -226,19 +342,19 @@
     align-items: center;
     justify-items: center;
     background-color: rgba(255, 255, 255, 0);
-    box-shadow: 0 0 5px 1px rgb(175, 175, 175);
-    width: 100vw;
+    box-shadow: 0 0 5px 1px rgb(175, 175, 175); */
+
     /* min-width: 210mm; */
-    height: auto;
+    /* height: auto;
   }
 
   .flex {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-  }
+  } */
 
 
-  .form {
+  /* .form {
     box-sizing: border-box;
     position: relative;
     width: 5cm;
@@ -249,9 +365,9 @@
     border:  1.5mm solid rgb(229, 229, 229);
     margin: 2.5mm;
     background-color: #00000058;
-  }
+  } */
 
-  .pluss {
+  /* .pluss {
     cursor: pointer;
     position: fixed;
     padding: 0px;
@@ -270,7 +386,7 @@
     border: none;
     transition: .3s all;
     font-size: 25px;
-  }
+  } */
    /*
   .form {
     position: relative;

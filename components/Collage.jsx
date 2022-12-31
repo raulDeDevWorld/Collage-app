@@ -35,7 +35,7 @@ function Collage({ id, remove }) {
         }
     };
 
-    console.log(dataUrl)
+    console.log(numeration)
 
     const handlerQRUrl = (e) => {
         const qr = e.target.value
