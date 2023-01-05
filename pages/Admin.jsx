@@ -3,12 +3,11 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
 import Particles from '../components/Particles'
-import Collage from '../components/Collage'
-import CollageQR from '../components/CollageQR'
+
 import { WithAuth } from '../HOCs/WithAuth'
 import Layout from '../layout/Layout'
 import Error from '../components/Error'
-import Modal from '../components/Modal'
+
 import Button from '../components/Button'
 
 import style from '../styles/Admin.module.css'
