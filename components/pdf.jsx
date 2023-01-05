@@ -193,7 +193,7 @@ const PDFView = () => {
                 <Page size='A4' style={{ ...styles.body, display: 'flex', flexDirection: 'row', justifyContent: 'center' }} >
                     {templates[4].map((i, index) =>
                         <View style={{ ...styles.form, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '120mm' : '120mm', margin: '1.5mm' }} key={`A-${numeration[index + (4 * 9)]}`}>
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 36 &&
+                            {numeration[4 * 9-2+index] == 21 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: '50%', position: 'absolute', top: '0' }}>
 
                                     <View style={{ boxSizing: 'border-box', width: '50%', height: '100%', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)' }}  >
@@ -206,7 +206,7 @@ const PDFView = () => {
                                     </View>
                                 </View>}
 
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 36 &&
+                            {numeration[4 * 9-2+index] == 21 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'row', width: '100%', height: '50%', position: 'absolute', bottom: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '100%', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }}>
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
@@ -218,7 +218,7 @@ const PDFView = () => {
                                     </View>
                                 </View>}
                            
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 37 &&
+                            {numeration[4 * 9-2+index] == 27 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', width: '100%', height: '100%', position: 'absolute', top: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '100%', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }}>
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
@@ -229,7 +229,7 @@ const PDFView = () => {
                                         <Text style={{ ...styles.heart, fontSize: '10px', transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, paddingTop: '16px' }}>28</Text>
                                     </View>
                                 </View>}
-                                {numeration.indexOf(numeration[index + (4 * 9)]) == 38 &&
+                                {numeration[4 * 9-2+index] == 39 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', width: '100%', height: '100%', position: 'absolute', top: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '100%', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }}>
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
@@ -242,22 +242,25 @@ const PDFView = () => {
                                 </View>}
 
 
-                            {image[`Image-${numeration[index + (4 * 9)]}`] && <Image src={image[`Image-${numeration[index + (4 * 9)]}`].url} style={{
+                            {image[`Image-${numeration[4 * 9-2+index]}`] && 
+                            <Image 
+                                src={image[`Image-${numeration[4 * 9-2+index]}`].url} style={{
                                 ...styles.image, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover',
 
 
 
                                 width: templates[4][index] == 'h'
-                                    ? (numeration.indexOf(numeration[index + (4 * 9)]) > 36
+                                    ? (numeration[4 * 9-2+index] !== 21
                                         ? '117mm' : '100%')
                                     : '100%',
 
                                 height: templates[4][index] == 'h'
-                                    ? (numeration.indexOf(numeration[index + (4 * 9)]) > 36
+                                    ? (numeration[4 * 9-2+index] !== 21
                                         ? '77mm' : '100%')
                                     : '100%',
                                 position: 'absolute'
                             }} />}
+
                         </View>)}
                 </Page>
 
@@ -265,7 +268,7 @@ const PDFView = () => {
                     {templates[4].map((i, index) =>
                         <View style={{ ...styles.formReverse, position:'relative', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '80mm' : '160mm', height: numeration.indexOf(numeration[index + (4 * 9)]) !== 36 ? '120mm' : '120mm', margin: '1.5mm' }} key={`A-${numeration[index + (4 * 9)]}`}>
 
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 36 &&
+                            {numeration[4 * 9-2+index] == 21 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: '60mm', position: 'absolute', top: '0' }}>
                                     <View style={{ boxSizing: 'border-box', width: '50%', height: '60mm', position: 'relative', left: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '0.5mm dashed rgb(229, 229, 229)', borderTop: 'none', borderLeft: 'none' }} >
                                         <Image src='/heart.png' style={{ ...styles.heart }}></Image>
@@ -276,7 +279,7 @@ const PDFView = () => {
                                         <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>20</Text>
                                     </View>
                                 </View>}
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 36 &&
+                            {numeration[4 * 9-2+index] == 21 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'row', width: '100%', height: '60mm', position: 'absolute', bottom: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '60mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '0.5mm dashed rgb(229, 229, 229)', borderBottom: 'none', borderLeft: 'none' }}>
                                         <Image src='/heart.png' style={{ ...styles.heart }}></Image>
@@ -288,7 +291,7 @@ const PDFView = () => {
                                     </View>
                                 </View>}
                            
-                            {numeration.indexOf(numeration[index + (4 * 9)]) == 37 &&
+                            {numeration[4 * 9-2+index] == 27 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', width: '100%', height: '100%', position: 'absolute', bottom: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '60mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '0.5mm dashed rgb(229, 229, 229)' }}>
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(270deg )` }}></Image>
@@ -300,7 +303,7 @@ const PDFView = () => {
                                     </View>
                                 </View>}
                            
-                                {numeration.indexOf(numeration[index + (4 * 9)]) == 38 &&
+                                {numeration[4 * 9-2+index] == 39 &&
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', width: '100%', height: '100%', position: 'absolute', bottom: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '60mm', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '0.5mm dashed rgb(229, 229, 229)' }}>
                                         <Image src='/heart.png' style={{ ...styles.heart }}></Image>
@@ -324,74 +327,5 @@ const PDFView = () => {
 
 
 export default PDFView
-
-
-
-
-
-// figure: {
-//     boxSizing: 'border-box',
-//     position: 'relative',
-  
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-  
-//     margin: '.5mm',
-//     border: '2mm solid rgb(229, 229, 229)',
-  
-//     backgroundColor: '#525252',
-  
-//   },
-  
-//   figureOne:  {
-//     height: '8cm',
-//     width: '6cm',
-//   },
-  
-//   figureTwo:  {
-//     height: '8.3cm',
-//     width: '6.3cm',
-//   },
-  
-//   figureThree:  {
-//     height: '12cm',
-//     width: '16cm',
-//   },
-  
-//   figureFour:  {
-//     height: '12cm',
-//     width: '8cm',
-//   }
-
-
-
-
-// import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from "@react-pdf/renderer";
-
-// export default function Figure({ stylesProp, num, rotate, index }) {
-
-//     return (
-//         <View style={styles} >
-//             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}></Image>
-//             <View style={{ ...styles.heart, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )` }}>
-//                 <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (0 * 9)]}</Text>
-//             </View>
-//             {image[`Image-${numeration[index + (0 * 9)]}`] && <Image src={image[`Image-${numeration[index + (0 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[0][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[0][index] == 'h' ? '77mm' : '57mm', height: templates[0][index] == 'h' ? '57mm' : '77mm' }} />}
-//         </View>
-//     )
-// }
-
-
-
-
-
-
-
-
-
-
-
-
 
 

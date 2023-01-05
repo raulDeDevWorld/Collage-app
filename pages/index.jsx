@@ -19,7 +19,7 @@ import Link from 'next/link'
 import style from '../styles/Home.module.css'
 
 function Home() {
-  const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration } = useUser()
+  const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image } = useUser()
   const router = useRouter()
 
   const [mode, setMode] = useState(false)
@@ -92,8 +92,9 @@ function Home() {
 
   };
 
-  console.log(user)
-  console.log(userDB)
+  console.log(numeration)
+  console.log(image)
+  
   useEffect(() => {
     document.getElementById('qr') && setDataUrl(document.getElementById('qr').toDataURL())
   }, [qr]);
@@ -214,24 +215,3 @@ export default WithAuth(Home)
 
 
 
-
-
-{/* <Collage id={0} remove={() => remove('pageOne')} />
-          <Collage id={1} remove={() => remove('pageTwo')} />
-          <Collage id={2} remove={() => remove('pageThree')} />
-          <Collage id={3} remove={() => remove('pageThree')} />
-          <Collage id={4} remove={() => remove('pageFour')} /> */}
-
-
-
-
-
-
-
-
-
-{/* {qr && <CollageQR id={'QR'} numeration={numeration[3]} dataOrientations={templates[`template4`]} remove={removeQR} />} */ }
-{/* <button className={`${style.pluss} ${pluss === true ? style.add : ''}`} onClick={arrItemsHandler}>add</button>
-          <button className={`${style.pluss} ${pluss === true ? style.qr : ''}`} onClick={handlerQR}>QR</button>
-          <button className={`${style.pluss} ${pluss === true ? style.pdf : ''}`} onClick={handlerPDF}>pdf</button>
-          <button className={`${style.pluss} ${style.plussFont}`} onClick={plussButton}>+</button> */}
