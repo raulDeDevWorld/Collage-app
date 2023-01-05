@@ -81,13 +81,21 @@
 }
 
 .figureThree {
+  position: relative;
   height: 12cm;
   width: 16cm;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .figureFour {
+  position: relative;
   height: 12cm;
   width: 8cm;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 .void {
   box-sizing: border-box;
