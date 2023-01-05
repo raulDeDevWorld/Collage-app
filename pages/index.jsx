@@ -1,10 +1,9 @@
-import { onAuth, signInWithEmail, handleSignOut, getCode } from '../firebase/utils'
+import { getCode } from '../firebase/utils'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
 import Particles from '../components/Particles'
-import Collage from '../components/Collage'
-import CollageQR from '../components/CollageQR'
+
 import { WithAuth } from '../HOCs/WithAuth'
 import Layout from '../layout/Layout'
 import Error from '../components/Error'
@@ -15,6 +14,7 @@ import Success from '../components/Success'
 import Modal from '../components/Modal'
 import Button from '../components/Button'
 import QRCode from "qrcode.react";
+import Link from 'next/link'
 
 import style from '../styles/Home.module.css'
 
@@ -76,7 +76,9 @@ function Home() {
     setQr(!qr)
   }
   function handlerPDF() {
-    router.push('/PdfViewer')
+    userDB.users[user.uid] && userDB.users[user.uid].uid
+    ? router.push('/PdfViewer')
+    : setUserSuccess('RequireCodeActivation')
   }
   function x() {
     setMode(!mode)
@@ -139,13 +141,13 @@ function Home() {
 
           <div className={style.separator}></div>
 
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[27]} num={32} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[28]} num={33} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[29]} num={34} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[30]} num={35} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[31]} num={36} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[32]} num={37} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[33]} num={38} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[27]} num={34} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[28]} num={35} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[29]} num={36} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[30]} num={37} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[31]} num={38} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[32]} num={41} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[33]} num={42} ></Figure>
 
           <div className={style.qr}>
             <QRCode
@@ -174,6 +176,8 @@ function Home() {
         {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
         {success == 'InUse' && <Error>ERROR: codigo en uso</Error>}
         {success == 'Premium' && <Success>Felicidades, ERES PREMIUM !!</Success>}
+        {success == 'RequireCodeActivation' && <Error>Debes Activar Tu Cuenta</Error>}
+
        
         <Particles />
       </div>
@@ -191,6 +195,10 @@ function Home() {
           <div className={style.buttonsContainer}>
             {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? '' : <Button style='buttonPrimary' click={nextClick}>Continuar</Button>}
           </div>
+          <br />
+          <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20un%20c%C3%B3digo%20de%20ACTIVACI%C3%93N%20para%20la%20app...' legacyBehavior>
+            <a target='_blank' className={style.whatsAppLink} >Solicitar un codigo de ACTIVACIÓN</a>
+          </Link>
         </form>
       </Modal>
 

@@ -57,40 +57,42 @@ export default function Figure({ stylesProp, num, rotate, index }) {
 
             {num === 39 && <div className={style.container39}>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >39</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >22</span>
                 </div>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >40</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >20</span>
                 </div>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >41</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >23</span>
                 </div>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >42</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >21</span>
                 </div>
             </div>
             }
 
             {num === 43 && <div className={style.container43}>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >43</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >27</span>
                 </div>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >44</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >28</span>
                 </div>
             </div>}
 
             {num === 45 && <div className={style.container43}>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >45</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >39</span>
                 </div>
                 <div>
-                    <span className={rotate ? style.heartRotate : style.heart} >46</span>
+                    <span className={rotate ? style.heartRotate : style.heart} >40</span>
                 </div>
             </div>}
 
-            {num !== 39 && <label htmlFor={index} className={style.labelFileFigure}  >Cargar IMG {num}</label>}
-            {num === 39 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 37 al 40</label>}
+            {num !== 39 && num !== 43 && num !== 45 && <label htmlFor={index} className={style.labelFileFigure}  >Cargar IMG {num}</label>}
+            {num === 43 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 27-28</label>}
+            {num === 45 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 39-40</label>}
+            {num === 39 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 22-20-23-21</label>}
 
             <input type="file" id={index} name={`Image-${index}`} className={style.inputFileFigure} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
             {image[`Image-${index}`] && <img src={image[`Image-${index}`].url} className={rotate ? `${rotate}` : `${style.image}`} alt="" />}

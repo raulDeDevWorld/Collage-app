@@ -222,11 +222,11 @@ const PDFView = () => {
                                 <View style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', width: '100%', height: '100%', position: 'absolute', top: '0' }} >
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '100%', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }}>
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
-                                        <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>27</Text>
+                                        <Text style={{ ...styles.heart, fontSize: '10px', transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, paddingTop: '16px' }}>27</Text>
                                     </View>
                                     <View style={{ boxSizing: 'border-box', width: '100%', height: '100%', position: 'relative', right: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1.5mm solid rgb(229, 229, 229)', }} >
                                         <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )` }}></Image>
-                                        <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>28</Text>
+                                        <Text style={{ ...styles.heart, fontSize: '10px', transform: `rotate(${templates[4][index] == 'h' ? '90' : '0'}deg )`, paddingTop: '16px' }}>28</Text>
                                     </View>
                                 </View>}
                                 {numeration.indexOf(numeration[index + (4 * 9)]) == 38 &&

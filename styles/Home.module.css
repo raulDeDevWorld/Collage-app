@@ -216,6 +216,9 @@
 
 }
 
+.whatsAppLink {
+  text-decoration: underline;
+}
 @media (max-width: 850px) {
 
   .grid {
@@ -229,6 +232,8 @@
   .figureOne, .figureTwo, .figureThree, .figureFour {
     border: 1vw solid rgb(229, 229, 229);
     margin: .5mm;
+    background-color: #0000009a;
+
   }
   
   .figureOne {
