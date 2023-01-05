@@ -8,11 +8,8 @@
   right: 0;
   left: 0;
   margin: auto;
-  z-index: 10000;
+  z-index: 10000000;
   background-color: rgba(0, 0, 0, 0.616);
-
-
-
 }
 
 .contBlue {
@@ -97,5 +94,20 @@
   }
   100% {
     color: #ff496a ;
+  }
+}
+
+@media (max-width: 850px) {
+  .modalContainer {
+    position: fixed;
+    width: 100%;
+    min-width: 280px;
+    min-height: 100vh;
+    top: 85px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    min-width: 360px;
   }
 }

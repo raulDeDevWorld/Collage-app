@@ -25,7 +25,7 @@
   border-radius: 5px;
   padding: 15px 35px;
   animation: animation 4s infinite ease-in-out;
-  z-index: 10000000000;
+  z-index: 1000;
 }
 
 /* ----------------- Collage Albun ----------------- */
@@ -55,7 +55,7 @@
 
 }
 
-.figureOne, .figureTwo, .figureThree, .figureFour {
+.figureOne, .figureTwo, .figureThree, .figureFour, .figureFive {
   box-sizing: border-box;
   position: relative;
 
@@ -94,8 +94,13 @@
   width: 8cm;
   position: relative;
   margin-left: auto;
+}
+.figureFive {
+  position: relative;
+  height: 12cm;
+  width: 8cm;
+  position: relative;
   margin-right: auto;
-
 }
 .void {
   box-sizing: border-box;
@@ -112,7 +117,7 @@
   width: 6cm;
 }
 
-.figureOne:hover, .figureTwo:hover, .figureThree:hover, .figureFour:hover {
+.figureOne:hover, .figureTwo:hover, .figureThree:hover, .figureFour:hover, .figureFive:hover {
   transition-property: all;
   transition-duration: .5s;
   background-color: rgb(54, 46, 46);
@@ -161,10 +166,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .buttonsContainer {
-  margin-top: 5px;
+  margin: 5px 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -228,7 +234,17 @@
   text-decoration: underline;
 }
 @media (max-width: 850px) {
+  .container {
+    position: relative;
+    /* background-color: blue; */
+    padding-top: 70px;
+  }
 
+  .activator {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+  }
   .grid {
     padding: 2vw;
     min-width: 100vw;
@@ -237,10 +253,10 @@
 
   }
 
-  .figureOne, .figureTwo, .figureThree, .figureFour {
+  .figureOne, .figureTwo, .figureThree, .figureFour, .figureFive {
     border: 1vw solid rgb(229, 229, 229);
     margin: .5mm;
-    background-color: #0000009a;
+    background-color: rgba(0, 0, 0, 0.546);
 
   }
   
@@ -257,11 +273,19 @@
   .figureThree {
     height: 60vw;
     width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .figureFour {
     height: 60vw;
     width: 40vw;
+    margin-left: auto;
+  }
+  .figureFive {
+    height: 60vw;
+    width: 40vw;
+    margin-right: auto;
   }
 
   .void {

@@ -168,7 +168,7 @@ function Home() {
 
           <Figure stylesProp={style.figureThree} url='#' index={numeration[34]} num={39} ></Figure>
           <Figure stylesProp={style.figureFour} url='#' index={numeration[35]} num={43} rotate={style.figureFourIMGRotate}></Figure>
-          <Figure stylesProp={style.figureFour} url='#' index={numeration[36]} num={45} ></Figure>
+          <Figure stylesProp={style.figureFive} url='#' index={numeration[36]} num={45} ></Figure>
         </div>
 
         <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button>
@@ -195,10 +195,14 @@ function Home() {
           <div className={style.buttonsContainer}>
             {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? '' : <Button style='buttonPrimary' click={nextClick}>Continuar</Button>}
           </div>
-          <br />
-          <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20un%20c%C3%B3digo%20de%20ACTIVACI%C3%93N%20para%20la%20app...' legacyBehavior>
+        
+          {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid 
+          ? <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20Soporte%20con%20la%20app...' legacyBehavior>
+          <a target='_blank' className={style.whatsAppLink} >Soporte OBZON</a>
+        </Link>
+          : <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20un%20c%C3%B3digo%20de%20ACTIVACI%C3%93N%20para%20la%20app...' legacyBehavior>
             <a target='_blank' className={style.whatsAppLink} >Solicitar un codigo de ACTIVACIÓN</a>
-          </Link>
+          </Link>}
         </form>
       </Modal>
 
