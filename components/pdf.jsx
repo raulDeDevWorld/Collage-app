@@ -156,7 +156,7 @@ const PDFView = () => {
                             <Image src='/heart.png' style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}></Image>
                             <View style={{ ...styles.heart, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )` }}>  <Text style={{ ...styles.heart, fontSize: '10px', paddingTop: '16px' }}>{numeration[index + (3 * 9)]}</Text> </View>
 
-                            {image[`Image-${numeration[index + (3 * 9)]}`] && <Image src={image[`Image-${numeration[index + (3 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'contain', width: templates[3][index] == 'h' ? '77mm' : '57mm', height: templates[3][index] == 'h' ? '57mm' : '77mm' }} />}
+                            {image[`Image-${numeration[index + (3 * 9)]}`] && <Image src={image[`Image-${numeration[index + (3 * 9)]}`].url} style={{ ...styles.image, transform: `rotate(${templates[3][index] == 'h' ? '90' : '0'}deg )`, objectFit: 'cover', width: templates[3][index] == 'h' ? '77mm' : '57mm', height: templates[3][index] == 'h' ? '57mm' : '77mm' }} />}
                         </View>)}
 
                     <View style={{ ...styles.form, border: 'none' }} key={'qr'} >
