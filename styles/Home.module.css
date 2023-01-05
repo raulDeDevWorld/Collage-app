@@ -1,5 +1,5 @@
 .container {
-  position: a;
+  position: relative;
   /* background-color: blue; */
   padding-top: 90px;
   padding-bottom: 70px;
@@ -13,9 +13,22 @@
   align-items: center;
   color: rgb(255, 255, 255);
   font-size: 14px;
-  background-attachment: fixed;
-  
 }
+
+.activator {
+  position: fixed;
+  top: 80px;
+  right: 15px;
+  background-color: rgb(27, 27, 27);
+  color: #ff496a;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 35px;
+  animation: animation 4s infinite ease-in-out;
+  z-index: 10000000000;
+}
+
+/* ----------------- Collage Albun ----------------- */
 
 .grid {
   position: relative;
@@ -33,6 +46,7 @@
   z-index: 100;
 
 }
+
 .separator {
   background-color: #b9b9b9;
   height: 1px;
@@ -41,85 +55,99 @@
 
 }
 
-.figureOne {
+.figureOne, .figureTwo, .figureThree, .figureFour {
   box-sizing: border-box;
   position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  border:  2mm solid rgb(229, 229, 229);
+
   margin: .5mm;
+  border: 2mm solid rgb(229, 229, 229);
+
   background-color: #525252;
+
+}
+
+.figureOne {
   height: 8cm;
   width: 6cm;
 }
+
 .figureTwo {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  2mm solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
   height: 8.3cm;
   width: 6.3cm;
 }
+
 .figureThree {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  2mm solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
   height: 12cm;
   width: 16cm;
 }
+
 .figureFour {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  2mm solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
   height: 12cm;
   width: 8cm;
 }
-.formOne:hover {
-  transition-property: all;
-  transition-duration: .5s;
-  background-color: rgb(68, 57, 57);
+.void {
+  box-sizing: border-box;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: .5mm;
+  border: 2mm solid transparent;
+
+  height: 8cm;
+  width: 6cm;
 }
 
-.figureOneIMGRotate {
-  position: absolute;
-  object-fit: cover;
+.figureOne:hover, .figureTwo:hover, .figureThree:hover, .figureFour:hover {
+  transition-property: all;
+  transition-duration: .5s;
+  background-color: rgb(54, 46, 46);
+}
+
+.figureOneIMGRotate, .figureTwoIMGRotate, .figureFourIMGRotate  {
+  position: absolute;                                                                                                      
+  object-fit: cover;  
+  border: 2mm solid transparent;
+  transform: rotate(90deg);
+}
+
+.figureOneIMGRotate{
   height: 60mm;
   width: 80mm;
-  border:  2mm solid transparent;
-  transform: rotate(90deg);
 }
 
 .figureTwoIMGRotate {
-  position: absolute;
-  object-fit: cover;
   height: 63mm;
   width: 83mm;
-  border:  2mm solid transparent;
-  transform: rotate(90deg);
 }
+
 .figureFourIMGRotate {
-  position: absolute;
-  object-fit: cover;
   height: 80mm;
   width: 120mm;
-  border:  2mm solid transparent;
-  transform: rotate(90deg);
 }
+
+.qr {
+  position: relative;
+  box-sizing: content-box;
+  padding: 2mm;
+  height: 3.5cm;
+  width: 3.5cm;
+  background-color: transparent;
+  border: 1px solid rgb(229, 229, 229);
+}
+
+.inputQR  {
+  width: 100%;
+}
+
+/* ----------------- Modal -----------------  */
+
 .formActive {
   width: 90%;
   display: flex;
@@ -134,90 +162,37 @@
   justify-content: center;
 }
 
-.qr {
-height: 3.5cm;
-width: 3.5cm;
-margin-right: 60mm;
-}
-
-
-.inputFile {
-  display: none;
-}
-
-
-.image {
-  position: absolute;
-  background-color: rgb(255, 255, 255);
-}
-
-.reverse {
-  width: 303px;
-  height: 189px;
-}
-
-.rotate {
-  position: absolute;
-  background-color: #00000059;
-  color: white;
-  border: none;
-  padding: 5px;
-  margin-bottom: 50px;
-  z-index: 10000;
-}
-.opacity {
-  opacity: 1  ;
-}
-.activator {
-  position: fixed;
-  top: 80px;
-  right: 15px;
-  background-color: rgb(27, 27, 27);
-  color: #ff496a ;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 35px;
+.codeActive {
   animation: animation 4s infinite ease-in-out;
-  z-index: 10000000000;
-  /* clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 72%, 100% 100%, 95% 75%, 0% 75%); */
+  text-align: center;
+  background-color: #000000;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+
+@keyframes animation {
+  0% {
+    color: #ff496a;
   }
 
-  .codeActive {
-    animation: animation 4s infinite ease-in-out;
-    text-align: center;
-    background-color: #000000;
-    padding: 5px 0;
-    border-radius: 5px;
+  50% {
+    color: #ff6d49;
+
   }
 
+  50% {
+    color: #ffb049;
 
-  @keyframes animation {
-    0% {
-      color: #ff496a ;
-    }
-
-    50% {
-      color: #ff6d49 ;
-
-    }
-    50% {
-      color: #ffb049 ;
-
-    }
-    100% {
-      color: #ff496a ;
-
-    }
   }
-  
 
-  .inputActive {
-    background-color: #ffffff;
-    border: none;
-    padding: 5px;
-    border-radius: 2px;
-    text-align: center;
+  100% {
+    color: #ff496a;
+
   }
+}
+
+/* --------------- float button --------------- */
 .pluss {
   cursor: pointer;
   position: fixed;
@@ -237,184 +212,77 @@ margin-right: 60mm;
   border: none;
   transition: .3s all;
   font-size: 15px;
-}
-.plussFont {
-  font-size: 20px;
   z-index: 1000000;
-}
-.add {
-  bottom: 15px;
-  right: 85px;
-}
-.qr {
-  bottom: 85px;
-  right: 15px;
-}
-.pdf {
-  bottom: 70px;
-  right: 70px;
-}
-.remove {
-  cursor: pointer;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  background-color: #DE0322 ;
-  color: #ffffff;
-  border-radius: 5px;
-  border: none;
-  padding: 10px 35px;
-} 
-
-.main {
 
 }
 
 @media (max-width: 850px) {
 
-.grid {
-  padding: 2vw;
-  min-width: 100vw;
-  background-color: rgba(255, 255, 255, 0);
-  font-size: 11px;
-
-}
-
-.figureOne {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  .6vw solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
-  height: 40vw;
-  width: 30vw;
-}
-.figureTwo {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  .6vw solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
-  height: 40.15vw;
-  width: 30.15vw;
-}
-.figureThree {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  .6vw solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
-  height: 60vw;
-  width: 80vw;
-}
-.figureFour {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:  .6vw solid rgb(229, 229, 229);
-  margin: .5mm;
-  background-color: #525252;
-  height: 60vw;
-  width: 40vw;
-}
-
-
-
-
-  /* .grid {
-    position: relative;
-    box-sizing: border-box;
-    padding: .5mm;
-    padding-bottom: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
+  .grid {
+    padding: 2vw;
+    min-width: 100vw;
     background-color: rgba(255, 255, 255, 0);
-    box-shadow: 0 0 5px 1px rgb(175, 175, 175); */
+    font-size: 11px;
 
-    /* min-width: 210mm; */
-    /* height: auto;
   }
 
-  .flex {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-  } */
-
-
-  /* .form {
-    box-sizing: border-box;
-    position: relative;
-    width: 5cm;
-    height: 8cm;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border:  1.5mm solid rgb(229, 229, 229);
-    margin: 2.5mm;
-    background-color: #00000058;
-  } */
-
-  /* .pluss {
-    cursor: pointer;
-    position: fixed;
-    padding: 0px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 0;
-    bottom: 15px;
-    right: 15px;
-    background-color: #ffffff;
-    height: 80px;
-    width: 80px;
-    border-radius: 50px;
-    color: #DE0322;
-    border: none;
-    transition: .3s all;
-    font-size: 25px;
-  } */
-   /*
-  .form {
-    position: relative;
-    width: 103px;
-    height: 89px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #DE0322;
-  
+  .figureOne, .figureTwo, .figureThree, .figureFour {
+    border: 1vw solid rgb(229, 229, 229);
+    margin: .5mm;
   }
-  .labelFile {
-    position: relative;
-    cursor: pointer;
-    width: 100%;
-    height: 62.37%;
   
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .figureOne {
+    height: 40vw;
+    width: 30vw;
+  }
   
-    color: rgb(219, 219, 219);
-    padding: 5px 15px;
+  .figureTwo {
+    height: 41.5vw;
+    width: 31.5vw;
+  }
   
-    border: 1px solid rgb(149, 149, 149);;
-    border-radius: 3px;
+  .figureThree {
+    height: 60vw;
+    width: 80vw;
+  }
   
-    transition-property: all;
-    transition-duration: .5s;
-  } */
+  .figureFour {
+    height: 60vw;
+    width: 40vw;
+  }
+
+  .void {
+    border: 1vw solid transparent;
+    margin: .5mm;
+  
+    height: 40vw;
+    width: 30vw;
+  }
+  .figureOneIMGRotate, .figureTwoIMGRotate, .figureFourIMGRotate  {
+    position: absolute;                                                                                                      
+    object-fit: cover;  
+    border: 1vw solid transparent;
+    transform: rotate(90deg);
+  }
+  
+  .figureOneIMGRotate{
+    height: 30vw;
+    width: 40vw;
+  }
+  
+  .figureTwoIMGRotate {
+    height: 31.5vw;
+    width: 41.5vw;
+  }
+  
+  .figureFourIMGRotate {
+    height: 40vw;
+    width: 60vw;
+  }
+  .qr {
+    height: 17.5vw;
+    width: 17.5vw;
+    margin-right: 0;
+  }
+
 }

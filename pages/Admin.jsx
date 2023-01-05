@@ -99,10 +99,8 @@ function Admin() {
 
     <Layout>
       <div className={style.container}>
-
-        <main className={style.main}>
+      
           <h3 className={style.subtitle}> Administrar Usuarios</h3>
-
           {userDB.users &&
             <div>
               {Object.keys(userDB.users).map((i, index) => {
@@ -116,23 +114,11 @@ function Admin() {
               }
               )}
             </div>}
-
-
-
-
-        </main>
+     
         {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
         {success == 'complete' && <Error>Llene todo el formulario</Error>}
         <Particles />
       </div>
-      <Modal mode={mode} click={x} text={'Ingresa tu codigo de activación'}>
-        <form className={style.formActive}>
-          <input className={style.inputActive} type="text" placeholder='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx' />
-          <div className={style.buttonsContainer}>
-            <Button style='buttonSecondary' click={backClick}>Atras</Button><Button style='buttonPrimary' click={nextClick}>Continuar</Button>
-          </div>
-        </form>
-      </Modal>
     </Layout>
 
   )

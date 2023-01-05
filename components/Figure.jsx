@@ -44,7 +44,6 @@ export default function Figure({ stylesProp, num, rotate, index }) {
     };
 
 
-    console.log(numeration)
 
     return (
         <div className={stylesProp}

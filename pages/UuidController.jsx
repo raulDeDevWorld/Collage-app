@@ -7,10 +7,11 @@ import styles from '../styles/Uuid.module.css'
 import Image from 'next/image'
 import Layout from '../layout/Layout'
 import { useUser } from '../context/Context.js'
+import { WithAuth } from '../HOCs/WithAuth'
 
 import { useRouter } from 'next/router'
 
-export default function UuidController() {
+function UuidController() {
   const { user, userDB, setUserSuccess, success, uuid, setUuid} = useUser()
   const router = useRouter()
 
@@ -55,7 +56,7 @@ export default function UuidController() {
     <Layout>
 
       <div className={styles.container}>
-        <main className={styles.main}>
+   
           {/* <img src="/logoCircle.png" className={styles.logo} alt="User" /> */}
           <div className={styles.container}>
             <div className={styles.buttons}>
@@ -82,10 +83,16 @@ export default function UuidController() {
             </div>
 
           </div>
-        </main>
+
 
       </div>
       </Layout>
 
         )
 }
+
+
+
+
+
+export default WithAuth(UuidController) 

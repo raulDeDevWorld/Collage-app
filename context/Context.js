@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 	const [userDB, setUserDB] = useState('loading')
 	const [success, setSuccess] = useState(null)
 	const [image, setImage] = useState({})
-	const [numeration, setNumeration] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,43, 44, 45, 46])
+	const [numeration, setNumeration] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 41, 42, 20, 22, 21, 23, 27, 39, 28, 40 ])
 	const [pageOne, setPageOne] = useState(true);
 	const [pageTwo, setPageTwo] = useState(true);
 	const [pageThree, setPageThree] = useState(true);
@@ -61,24 +61,24 @@ export function UserProvider({ children }) {
 		setSuccess(mode)
 		setTimeout(() => { setSuccess(null) }, 6000)
 	}
-	function handlerPageView(data, create) {
-		switch (data) {
-			case 'pageOne':
-				create == true ? setPageOne(true) : setPageOne(false)
-			  break;
-			case 'pageTwo':
-				create == true ? setPageOne(true) : setPageOne(false)
-			  break;
-			case 'pageThree':
-				create == true ? setPageOne(true) : setPageOne(false)
-			  break;
-			  case 'pageQR':
-				create == true ? setPageQR(true) : setPageQR(false)
-			  break;
-			default:
-			  break;
-		  }
-	}
+	// function handlerPageView(data, create) {
+	// 	switch (data) {
+	// 		case 'pageOne':
+	// 			create == true ? setPageOne(true) : setPageOne(false)
+	// 		  break;
+	// 		case 'pageTwo':
+	// 			create == true ? setPageOne(true) : setPageOne(false)
+	// 		  break;
+	// 		case 'pageThree':
+	// 			create == true ? setPageOne(true) : setPageOne(false)
+	// 		  break;
+	// 		  case 'pageQR':
+	// 			create == true ? setPageQR(true) : setPageQR(false)
+	// 		  break;
+	// 		default:
+	// 		  break;
+	// 	  }
+	// }
 
 
 	const value = useMemo(() => {
@@ -99,7 +99,6 @@ export function UserProvider({ children }) {
 			setUserData,
 			setUserSuccess,
 			setAlbunImage,
-			handlerPageView,
 			setAlbunNumeration,
 			setQr,
 			setDataUrl,

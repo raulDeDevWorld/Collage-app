@@ -7,12 +7,6 @@
     align-items: center;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .logo {
     height: auto;
@@ -39,8 +33,10 @@
     justify-items: center;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 5px 1px rgb(175, 175, 175);
-    width: 210mm;
-    height: 297mm;
+    width: 95vw;
+    min-height: 119.7vw;
+    max-width: 210mm;
+    max-height: 297mm;
     z-index: 100;
     font-size: 14px;
 }
@@ -78,8 +74,7 @@
         justify-items: center;
         background-color: rgba(0, 0, 0, 0.641);
         box-shadow: 0 0 5px 1px rgb(175, 175, 175);
-        width: 210mm;
-        height: 297mm;
+
         z-index: 100;
         font-size: 14px;
     }

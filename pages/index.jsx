@@ -28,7 +28,6 @@ function Home() {
   const [pluss, setPluss] = useState(false)
 
 
-
   const [opacity, setOpacity] = useState(false);
 
 
@@ -84,101 +83,102 @@ function Home() {
   }
 
 
-  
+
   const handlerQRUrl = (e) => {
     const qr = e.target.value
     setQr(qr)
 
-};
+  };
+
+  console.log(user)
+  console.log(userDB)
   useEffect(() => {
-    setDataUrl(document.getElementById('qr').toDataURL())
-}, [qr]);
+    document.getElementById('qr') && setDataUrl(document.getElementById('qr').toDataURL())
+  }, [qr]);
 
   return (
     <Layout >
       <div className={style.container}>
 
-        <main className={style.main}>
-          <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? 'Eres Premium' : 'Activar cuenta'}</button>
+        <button className={`${style.activator}`} onClick={x}> {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? 'Eres Premium' : 'Activar cuenta'}</button>
 
-          <div className={style.grid}>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[0]} num={1} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[1]} num={2} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[2]} num={3} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[3]} num={4} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[4]} num={5} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[5]} num={6} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[6]} num={7} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[7]} num={8} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[8]} num={9} rotate={style.figureOneIMGRotate}></Figure>
+        <div className={style.grid}>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[0]} num={1} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[1]} num={2} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[2]} num={3} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[3]} num={4} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[4]} num={5} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[5]} num={6} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[6]} num={7} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[7]} num={8} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[8]} num={9} rotate={style.figureOneIMGRotate}></Figure>
 
-            <div className={style.separator}></div>
+          <div className={style.separator}></div>
 
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[9]} num={10} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[10]} num={12} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[11]} num={12} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[12]} num={13} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[13]} num={14} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[14]} num={15} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[15]} num={16} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[16]} num={17} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[17]} num={18} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[9]} num={10} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[10]} num={12} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[11]} num={12} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[12]} num={13} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[13]} num={14} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[14]} num={15} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[15]} num={16} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[16]} num={17} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[17]} num={18} rotate={style.figureOneIMGRotate}></Figure>
 
-            <div className={style.separator}></div>
+          <div className={style.separator}></div>
 
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[18]} num={19} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[19]} num={24} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[20]} num={25} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[21]} num={26} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[22]} num={27} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[23]} num={28} rotate={style.figureOneIMGRotate}></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[24]} num={29} ></Figure>
-            <Figure stylesProp={style.figureTwo} url='#' index={numeration[25]} num={30} rotate={style.figureTwoIMGRotate}></Figure>
-            <Figure stylesProp={style.figureTwo} url='#' index={numeration[26]} num={31} rotate={style.figureTwoIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[18]} num={19} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[19]} num={24} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[20]} num={25} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[21]} num={26} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[22]} num={27} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[23]} num={28} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[24]} num={29} ></Figure>
+          <Figure stylesProp={style.figureTwo} url='#' index={numeration[25]} num={30} rotate={style.figureTwoIMGRotate}></Figure>
+          <Figure stylesProp={style.figureTwo} url='#' index={numeration[26]} num={31} rotate={style.figureTwoIMGRotate}></Figure>
 
-            <div className={style.separator}></div>
+          <div className={style.separator}></div>
 
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[27]} num={32} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[28]} num={33} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[29]} num={34} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[30]} num={35} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[31]} num={36} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[32]} num={37} ></Figure>
-            <Figure stylesProp={style.figureOne} url='#' index={numeration[33]} num={38} ></Figure>
-            <div className={style.qr}>
-                    <QRCode
-                        id='qr'
-                        size={256}
-                        style={{ height: "auto", maxWidth: "100%", width: "100%", border: 'none'}}
-                        value={qr}
-                        level={'H'}
-                        includeMargin={false}
-                        renderAs={'canvas'}
-                        viewBox={`0 0 256 256`}
-                    />
-                    <input style={{ height: "auto", margin: "0 auto", maxWidth: 120, width: "100%", }} className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />
-                </div>
-            <div className={style.separator}></div>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[27]} num={32} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[28]} num={33} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[29]} num={34} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[30]} num={35} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[31]} num={36} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[32]} num={37} ></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[33]} num={38} ></Figure>
 
-            <Figure stylesProp={style.figureThree} url='#' index={numeration[34]} num={39} ></Figure>
-            <Figure stylesProp={style.figureFour} url='#' index={numeration[35]} num={43} rotate={style.figureFourIMGRotate}></Figure>
-            <Figure stylesProp={style.figureFour} url='#' index={numeration[36]} num={45} ></Figure>
+          <div className={style.qr}>
+            <QRCode
+              id='qr'
+              size={256}
+              style={{ height: "auto", maxWidth: "100%", width: "100%", border: 'none', backgroundColor: 'red'}}
+              value={qr}
+              level={'H'}
+              includeMargin={false}
+              renderAs={'canvas'}
+              viewBox={`0 0 256 256`}
+            />
+            <input className={style.inputQR} onChange={handlerQRUrl} type="text" placeholder='Ingresar URL' />
           </div>
+          <div className={style.void}></div>
 
+          <div className={style.separator}></div>
 
+          <Figure stylesProp={style.figureThree} url='#' index={numeration[34]} num={39} ></Figure>
+          <Figure stylesProp={style.figureFour} url='#' index={numeration[35]} num={43} rotate={style.figureFourIMGRotate}></Figure>
+          <Figure stylesProp={style.figureFour} url='#' index={numeration[36]} num={45} ></Figure>
+        </div>
 
+        <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button>
 
-
-
-
-
-          <button className={`${style.pluss} ${style.plussFont}`} onClick={handlerPDF}>pdf</button>
-        </main>
         {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
         {success == 'InUse' && <Error>ERROR: codigo en uso</Error>}
         {success == 'Premium' && <Success>Felicidades, ERES PREMIUM !!</Success>}
+       
         <Particles />
       </div>
+      
+
       <Modal mode={mode} click={x} text={userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid ? 'Felicidades Eres Premium' : 'Ingresa tu codigo de activación'}>
         <form className={style.formActive}>
 
@@ -193,11 +193,12 @@ function Home() {
           </div>
         </form>
       </Modal>
+
     </Layout>
   )
 }
 
-export default WithAuth(Home)
+export default WithAuth(Home) 
 
 
 

@@ -5,7 +5,6 @@
     padding-bottom: 70px;
     height: 100%;
     width: 100vw;
-    min-width: 210mm;
     display: flex;
     flex-direction: column;
     /* centrado vertical */
@@ -18,7 +17,6 @@
 
 }
 
-
 .users {
     display: flex;
     width: 60vw;
@@ -26,14 +24,13 @@
     align-items: center;
     padding-bottom: 5px;
     border-bottom: 1px solid white;
-
+    z-index: 10000;
 }
 
 .users :nth-child(n) {
     width: 100%;
-    margin: auto 2px;
+    margin: 5px 2px 0 2px ;
 }
-
 .green {
     display: block;
     width: 100%;
@@ -63,5 +60,17 @@
 
     .users {
         width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .users :nth-child(n) {
+        width: 100%;
+        margin: 2px 2px;
+        text-align: center;
+    }
+    .users :nth-child(n) {
+        width: 100%;
+        margin: 2px 2px;
     }
 }

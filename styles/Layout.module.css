@@ -32,7 +32,7 @@
   display: none;
 }
 
-.power {
+.icon {
   display: none;
 }
 
@@ -44,16 +44,8 @@
 
 .main {
   position: relative;
-  box-sizing: border-box;
   min-height: 100vh;
-  width: 90vw;
-  max-width: 210mm;
-
-  background-image: url('../public/fondo-web.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  width: 100%;
 }
 
 @media (max-width: 850px) {
@@ -64,11 +56,13 @@
 
   }
 
-  .power {
+  .icon {
+    height: 20px;
+    width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 10px;
   }
 
   .header button {
@@ -78,7 +72,6 @@
     position: relative;
     box-sizing: border-box;
     min-height: 100vh;
-  width: 100vw;
-
+    width: 100vw;
   }
 }
