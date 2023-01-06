@@ -43,8 +43,8 @@
 }
 
 .logo {
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 250px;
   animation: animation1 50s infinite ease-in-out;
 
 }
