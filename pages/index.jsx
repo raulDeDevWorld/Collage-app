@@ -79,6 +79,8 @@ function Home() {
     userDB.users[user.uid] && userDB.users[user.uid].uid
     ? router.push('/PdfViewer')
     : setUserSuccess('RequireCodeActivation')
+
+    // router.push('/PdfViewer')
   }
   function x() {
     setMode(!mode)
@@ -119,7 +121,7 @@ function Home() {
           <div className={style.separator}></div>
 
           <Figure stylesProp={style.figureOne} url='#' index={numeration[9]} num={10} rotate={style.figureOneIMGRotate}></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[10]} num={12} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[10]} num={11} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[11]} num={12} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[12]} num={13} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[13]} num={14} ></Figure>
@@ -134,11 +136,11 @@ function Home() {
           <Figure stylesProp={style.figureOne} url='#' index={numeration[19]} num={24} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[20]} num={25} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[21]} num={26} ></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[22]} num={27} rotate={style.figureOneIMGRotate}></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[23]} num={28} rotate={style.figureOneIMGRotate}></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[24]} num={29} ></Figure>
-          <Figure stylesProp={style.figureTwo} url='#' index={numeration[25]} num={30} rotate={style.figureTwoIMGRotate}></Figure>
-          <Figure stylesProp={style.figureTwo} url='#' index={numeration[26]} num={31} rotate={style.figureTwoIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[22]} num={29} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[23]} num={30} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[24]} num={31} ></Figure>
+          <Figure stylesProp={style.figureTwo} url='#' index={numeration[25]} num={32} rotate={style.figureTwoIMGRotate}></Figure>
+          <Figure stylesProp={style.figureTwo} url='#' index={numeration[26]} num={33} rotate={style.figureTwoIMGRotate}></Figure>
 
           <div className={style.separator}></div>
 
