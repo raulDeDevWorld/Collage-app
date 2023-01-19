@@ -100,7 +100,7 @@ console.log(image)
             {num === 45 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 39-40</label>}
             {num === 39 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 22-20-23-21</label>}
 
-            <input type="file" id={index} name={`Image-${index}`} className={style.inputFileFigure} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
+            <input type="file" id={index} name={`Image-${index}`} className={style.inputFileFigure} onChange={handlerOnChange} accept='.jpg, .jpeg, .png, .svg' />
             {image[`Image-${index}`] && image[`Image-${index}`].url && <img 
             src={image[`Image-${index}`].url} 
             className={rotate ? `${rotate}` : `${style.image}`} 
