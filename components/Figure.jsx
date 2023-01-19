@@ -14,12 +14,18 @@ export default function Figure({ stylesProp, num, rotate, index }) {
         e.preventDefault()
         const fileName = e.target.name
         const file = e.target.files[0]
-        setAlbunImage({ ...image, [fileName]: { file, url: URL.createObjectURL(file), rotate: 0 } })
+        setAlbunImage({ ...image, [fileName]: { ...image[fileName], file, url: URL.createObjectURL(file), rotate: 0, position: 'center' } })
         console.log(e.target.value)
     }
 
+    function handlerEventOnChange(e) {
+        const fileName = e.target.name
+        const value = e.target.value
+        setAlbunImage({ ...image, [fileName]: { ...image[fileName], position:  value, rotate: 0 } })
 
-
+        console.log(e.target.value)
+    }
+console.log(image)
 
     function handleDragStart(e, index) {
         //   console.log('start' + index)
@@ -95,7 +101,33 @@ export default function Figure({ stylesProp, num, rotate, index }) {
             {num === 39 && <label htmlFor={index} className={style.labelFileFigureAbsolute}  >Cargar IMG 22-20-23-21</label>}
 
             <input type="file" id={index} name={`Image-${index}`} className={style.inputFileFigure} onChange={handlerOnChange} accept='.jpg, .jpeg, .png' />
-            {image[`Image-${index}`] && <img src={image[`Image-${index}`].url} className={rotate ? `${rotate}` : `${style.image}`} alt="" />}
+            {image[`Image-${index}`] && image[`Image-${index}`].url && <img 
+            src={image[`Image-${index}`].url} 
+            className={rotate ? `${rotate}` : `${style.image}`} 
+            style={{objectPosition: image[`Image-${index}`].position}} alt="" />}
+        
+
+            {rotate ? 
+              
+              image[`Image-${index}`] && image[`Image-${index}`].url && <div className={style.radioInputs}>
+         
+            <input type="radio" value="bottom" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'bottom' ? true : false}/> ⇦
+              <input type="radio" value="left" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'left' ? true : false}/> ⇧
+              <input type="radio" value="center" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'center' ? true : false}/> c
+              <input type="radio" value="right" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'right' ? true : false}/> ⇩
+              <input type="radio" value="top" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'top' ? true : false}/> ⇨
+           
+            </div>
+
+            :
+            
+            image[`Image-${index}`] && image[`Image-${index}`].url && <div className={style.radioInputs}>
+              <input type="radio" value="left" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'left' ? true : false}/> ⇧
+              <input type="radio" value="top" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'top' ? true : false}/> ⇧
+              <input type="radio" value="center" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'center' ? true : false}/> c
+              <input type="radio" value="bottom" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'bottom' ? true : false}/> ⇩
+              <input type="radio" value="right" name={`Image-${index}`} onChange={handlerEventOnChange} checked={image[`Image-${index}`] && image[`Image-${index}`].position !== undefined && image[`Image-${index}`].position == 'right' ? true : false}/> ⇨
+            </div>}
 
         </div >
     )

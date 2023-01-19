@@ -200,10 +200,10 @@ function Home() {
           </div>
         
           {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid 
-          ? <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20Soporte%20con%20la%20app...' legacyBehavior>
+          ? <Link href='https://api.whatsapp.com/send?phone=+59168033785&text=Hola%20OBZON,%20necesito%20Soporte%20con%20la%20app...' legacyBehavior>
           <a target='_blank' className={style.whatsAppLink} >Soporte OBZON</a>
         </Link>
-          : <Link href='https://api.whatsapp.com/send?phone=+59176586948&text=Hola%20OBZON,%20necesito%20un%20c%C3%B3digo%20de%20ACTIVACI%C3%93N%20para%20la%20app...' legacyBehavior>
+          : <Link href='https://api.whatsapp.com/send?phone=+59168033785&text=Hola%20OBZON,%20necesito%20un%20c%C3%B3digo%20de%20ACTIVACI%C3%93N%20para%20la%20app...' legacyBehavior>
             <a target='_blank' className={style.whatsAppLink} >Solicitar un codigo de ACTIVACIÓN</a>
           </Link>}
         </form>
@@ -214,6 +214,3 @@ function Home() {
 }
 
 export default WithAuth(Home) 
-
-
-

@@ -120,7 +120,19 @@
     background-color: rgb(255, 255, 255);
 }
 
+.radioInputs {
+    position: absolute;
+    padding-top: 50px;
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.radioInputs input {
 
+    z-index: 100000000000;
+}
 
 @media (max-width: 850px) {
 
@@ -152,5 +164,13 @@
         padding: 5px;
         margin-bottom: 50px;
         transform: rotate(90deg);
+    }
+    .radioInputs {
+        font-size: 10px
+        /* background-color: red; */
+    }
+    .radioInputs input {
+        width: 10px
+        /* background-color: red; */
     }
 }

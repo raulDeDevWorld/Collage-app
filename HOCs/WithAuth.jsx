@@ -5,6 +5,7 @@ import { useUser } from '../context/Context.js'
 import { onAuth } from '../firebase/utils'
 
 
+
 export function WithAuth(Component) {
     return () => {
         const { user, setUserProfile, setUserData } = useUser()
@@ -12,7 +13,7 @@ export function WithAuth(Component) {
 
         useEffect(() => {
             onAuth(setUserProfile, setUserData)
-            if(user === null) router.replace('/Login')
+            if(user === null) router.push('/Login')
         }, [user])
         
         return (

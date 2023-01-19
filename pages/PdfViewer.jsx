@@ -22,9 +22,6 @@ export default View
 
 
 
-
-
-
 // import dynamic from "next/dynamic";
 // import { PDFDownloadLink} from "@react-pdf/renderer";
 
