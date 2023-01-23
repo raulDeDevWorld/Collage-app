@@ -108,10 +108,10 @@ function getSpecificData(query, setUserSpecificData) {
   });
 }
 
-function writeUserData (rute, object, setUserSuccess) {
+function writeUserData (rute, object, setUserSuccess, data) {
   console.log('write')
   update(ref(db, rute), object )
-  .then(()=> setUserSuccess !== null? setUserSuccess('save'): console.log('Save'))
+  .then(()=> setUserSuccess !== null? setUserSuccess(data ? data : 'save'): console.log('Save'))
   .catch(()=> setUserSuccess !== null?setUserSuccess('repeat'): console.log('no save'))
 }
 
