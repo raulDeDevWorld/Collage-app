@@ -1,4 +1,4 @@
-import { onAuth, withGoogle } from '../firebase/utils'
+import { onAuth, withGoogle, withFacebook } from '../firebase/utils'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -16,7 +16,10 @@ function Login() {
         e.preventDefault()
         withGoogle()
     }
-
+    function loginWithFacebook(e) {
+        e.preventDefault()
+        withFacebook()
+    }
     useEffect(() => {
         onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG)
         if (user) router.replace('/')
@@ -36,7 +39,7 @@ function Login() {
                     <h2 className={style.subtitle}>LOGIN</h2>
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={loginWithGoogle}>Iniciar Sesion Con Google</Button>
-                        <Button style='buttonSecondary' click={loginWithGoogle}>Iniciar Sesion Con Facebook</Button>
+                        <Button style='buttonSecondary' click={loginWithFacebook}>Iniciar Sesion Con Facebook</Button>
                     </div>
                 </form>
                 <Particles/>

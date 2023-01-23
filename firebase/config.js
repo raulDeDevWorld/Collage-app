@@ -1,11 +1,10 @@
 export const firebaseConfig = {
 
-  apiKey: "AIzaSyCi5sP3776SKEdul6yewOwAprhF1Tth9qo",
-  authDomain: "collage-ee354.firebaseapp.com",
-  databaseURL: "https://collage-ee354-default-rtdb.firebaseio.com",
-  projectId: "collage-ee354",
-  storageBucket: "collage-ee354.appspot.com",
-  messagingSenderId: "177883742695",
-  appId: "1:177883742695:web:86bc3f12c9225972b8bd42"
+  apiKey: "AIzaSyAvAE932To1LPwo3nDu3CvVy-F_DtTnZeg",
+  authDomain: "obzonbolivia-177c2.firebaseapp.com",
+  projectId: "obzonbolivia-177c2",
+  storageBucket: "obzonbolivia-177c2.appspot.com",
+  messagingSenderId: "741501185799",
+  appId: "1:741501185799:web:c7f44b918d0ad3bd07dfa2"
   
-  };
+};
