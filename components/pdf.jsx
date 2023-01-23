@@ -331,7 +331,7 @@ const PDFView = ({click, style}) => {
             </Document>}
 
         fileName='Collage'>
-        <button click={click} className={style}>añadir</button>
+        <button click={click} className={style}>pdf</button>
     </PDFDownloadLink>}
 </div>
     )
