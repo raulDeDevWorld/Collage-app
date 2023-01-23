@@ -15,8 +15,14 @@ import Modal from '../components/Modal'
 import Button from '../components/Button'
 import QRCode from "qrcode.react";
 import Link from 'next/link'
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 import style from '../styles/Home.module.css'
+import dynamic from "next/dynamic";
+
+const InvoicePDF = dynamic(() => import("../components/pdf"), {
+  ssr: false,
+});
 
 function Home() {
   const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image } = useUser()
@@ -75,10 +81,27 @@ function Home() {
   function removeQR() {
     setQr(!qr)
   }
+
+
+  const [is, setIs] = useState(false);
   function handlerPDF() {
-    userDB.users[user.uid] && userDB.users[user.uid].uid
-    ? router.push('/PdfViewer')
-    : setUserSuccess('RequireCodeActivation')
+setIs(true)
+
+
+    // const downloadDoc = document.createElement('a')
+
+    // downloadDoc.href = '/PDFdoc'
+
+    // downloadDoc.click()
+
+    // document.body.appendChild(downloadDoc)
+
+
+    
+
+    // userDB.users[user.uid] && userDB.users[user.uid].uid
+    // ? router.push('/PdfViewer')
+    // : setUserSuccess('RequireCodeActivation')
 
     // router.push('/PdfViewer')
   }
@@ -97,6 +120,9 @@ function Home() {
   console.log(numeration)
   console.log(image)
   
+
+
+
   useEffect(() => {
     document.getElementById('qr') && setDataUrl(document.getElementById('qr').toDataURL())
   }, [qr]);
@@ -174,7 +200,9 @@ function Home() {
           <Figure stylesProp={style.figureFive} url='#' index={numeration[36]} num={45} ></Figure>
         </div>
 
-        <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button>
+        {/* <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button> */}
+        <InvoicePDF style={style.pluss} click={handlerPDF}/>
+
 
         {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
         {success == 'InUse' && <Error>ERROR: codigo en uso</Error>}

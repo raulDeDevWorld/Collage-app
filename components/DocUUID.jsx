@@ -1,8 +1,8 @@
 import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from "@react-pdf/renderer";
 import { useUser } from "../context/Context.js"
 import { useState, useRef, useEffect } from 'react'
-// import DocUUID from './docUUID'
-import Button from '../components/Button'
+// import docUUID from './docUUID'
+import Button from './Button'
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     }
 })
 
-const PDFView = ({click}) => {
+const PDFView = () => {
     const { image, setAlbunImage, templates, numeration, qr, dataUrl, uuid } = useUser()
     console.log(dataUrl)
     const [isCliente, setisCliente] = useState(false);
@@ -71,8 +71,8 @@ const PDFView = ({click}) => {
     }, []);
 
     return (
-        <div>
-            {isCliente && <PDFDownloadLink document={
+        <>
+            {isCliente && 
                 <Document>
                     <Page size='A4' style={styles.body} >
                         <View style={styles.container} >
@@ -86,28 +86,9 @@ const PDFView = ({click}) => {
                             )}
                         </View>
                     </Page>
-                </Document>
-            }
-            fileName='Activadores'>
-                <Button click={click} style={'buttonPrimary'}>añadir</Button>
-            </PDFDownloadLink>}
-        </div>
+                </Document>}
+        </>
     )
 }
 
 export default PDFView
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

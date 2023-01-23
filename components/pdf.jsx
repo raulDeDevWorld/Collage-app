@@ -1,5 +1,7 @@
 import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from "@react-pdf/renderer";
 import { useUser } from "../context/Context.js"
+import { useState, useRef, useEffect } from 'react'
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 
 Font.register({ family: "Inter", src: "/assets/font.otf" })
@@ -64,11 +66,18 @@ const styles = StyleSheet.create({
     }
 })
 
-const PDFView = () => {
+const PDFView = ({click, style}) => {
     const { image, setAlbunImage, templates, numeration, qr, dataUrl } = useUser()
-    console.log(dataUrl)
+    const [isCliente, setisCliente] = useState(false);
+
+
+    useEffect(() => {
+        setisCliente(true)
+    }, []);
+
     return (
-        <PDFViewer>
+        <div>
+        {isCliente && <PDFDownloadLink document={
 
             <Document>
 
@@ -319,8 +328,12 @@ const PDFView = () => {
                         </View>)}
                 </Page>
 
-            </Document>
-        </PDFViewer>
+            </Document>}
+
+        fileName='Collage'>
+        <button click={click} className={style}>añadir</button>
+    </PDFDownloadLink>}
+</div>
     )
 }
 
